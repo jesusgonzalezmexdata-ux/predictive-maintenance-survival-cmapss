@@ -1,0 +1,136 @@
+{
+  "censored_scoring": {
+    "concordance_vs_rul_truth": 0.815516,
+    "mean_unconditional_failure_probability_by_cycle": {
+      "100": 0.000978,
+      "150": 0.007127,
+      "200": 0.110286,
+      "250": 0.266848,
+      "50": 0.000978
+    },
+    "n_units": 100,
+    "note": "RUL truth used only to evaluate ranking; never a feature. Probabilities are from cycle 0 (unconditional), not conditioned on the observed censoring cycle."
+  },
+  "cost_policy": {
+    "at_horizon": false,
+    "c_f": 10.0,
+    "c_p": 1.0,
+    "cost_rate_at_t_star": 0.012231,
+    "cost_ratio": 10.0,
+    "horizon": 600.0,
+    "reliability_at_t_star": 0.969599,
+    "reliability_source": "weibull_unconditional",
+    "t_star": 104.7
+  },
+  "cox": {
+    "coefficients": {
+      "sensor_11_slope": -0.39722,
+      "sensor_15_slope": 0.068491,
+      "sensor_17_slope": 0.083286,
+      "sensor_20_slope": -0.259854,
+      "sensor_21_slope": -0.071345,
+      "sensor_2_slope": 0.15133,
+      "sensor_3_slope": 0.346314,
+      "sensor_4_slope": 0.726064
+    },
+    "covariates": [
+      "sensor_4_slope",
+      "sensor_3_slope",
+      "sensor_21_slope",
+      "sensor_20_slope",
+      "sensor_15_slope",
+      "sensor_17_slope",
+      "sensor_2_slope",
+      "sensor_11_slope"
+    ],
+    "penalizer": 0.05,
+    "train_concordance": 0.76527
+  },
+  "ph_test": {
+    "alpha": 0.05,
+    "holds": true,
+    "method": "schoenfeld_rank",
+    "p_values": {
+      "sensor_11_slope": 0.88352,
+      "sensor_15_slope": 0.577153,
+      "sensor_17_slope": 0.050603,
+      "sensor_20_slope": 0.815941,
+      "sensor_21_slope": 0.733082,
+      "sensor_2_slope": 0.314562,
+      "sensor_3_slope": 0.211811,
+      "sensor_4_slope": 0.588178
+    }
+  },
+  "pm_survival_version": "0.1.0",
+  "provenance": {
+    "early_window": 20,
+    "files": {
+      "RUL_FD001.txt": {
+        "sha256": "a19c8ec94931949d0485bdc35118206e9c81c4547b422efb9cf86f4ceddbceca"
+      },
+      "test_FD001.txt": {
+        "sha256": "3cda7109ce17bafb5443f2ac926cfcf88154b941b8c4cf95eb55d1ddd6f52851"
+      },
+      "train_FD001.txt": {
+        "sha256": "963b5e22825b34d8b21c69e1aeb4af3e647050eb672ee8834ba4b5d91d2de0f8"
+      }
+    },
+    "raw_dir": "data/raw/cmapss",
+    "schema_test": {
+      "max_cycle": 303,
+      "n_rows": 13096,
+      "n_units": 100
+    },
+    "schema_train": {
+      "max_cycle": 362,
+      "n_rows": 20631,
+      "n_units": 100
+    }
+  },
+  "selected_model": {
+    "coefficients": {
+      "sensor_11_slope": -0.39722,
+      "sensor_15_slope": 0.068491,
+      "sensor_17_slope": 0.083286,
+      "sensor_20_slope": -0.259854,
+      "sensor_21_slope": -0.071345,
+      "sensor_2_slope": 0.15133,
+      "sensor_3_slope": 0.346314,
+      "sensor_4_slope": 0.726064
+    },
+    "kind": "cox",
+    "reason": "PH assumption holds (all Schoenfeld p > 0.05); Cox PH retained."
+  },
+  "split": {
+    "n_train_units": 80,
+    "n_val_units": 20,
+    "seed": 42,
+    "val_fraction": 0.2
+  },
+  "subset": "FD001",
+  "validation": {
+    "brier": {
+      "100": 8.1e-05,
+      "150": 0.050318,
+      "200": 0.156157,
+      "250": 0.098838,
+      "50": 8.1e-05
+    },
+    "concordance": 0.777778,
+    "horizons": [
+      50,
+      100,
+      150,
+      200,
+      250
+    ],
+    "ibs": 0.064004
+  },
+  "weibull": {
+    "n": 80,
+    "n_events": 80,
+    "regime": "wear_out",
+    "scale": 222.976032,
+    "shape": 4.600593
+  }
+}
