@@ -133,7 +133,7 @@ def run_pipeline(
             "concordance": cidx,
             "ibs": ib["ibs"],
             "horizons": horizons,
-            "brier": {str(int(t)): b for t, b in zip(ib["times"], ib["brier"])},
+            "brier": {str(int(t)): b for t, b in zip(ib["times"], ib["brier"], strict=True)},
         },
         "censored_scoring": {
             "n_units": int(len(censored)),

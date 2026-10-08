@@ -1,0 +1,8 @@
+# Lint scope: product code only (the governance kernel has its own checks in repoctl).
+line-length = 120
+target-version = "py312"
+include = ["src/**/*.py", "app/**/*.py", "test/product/**/*.py", "tools/**/*.py"]
+
+[lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501"]

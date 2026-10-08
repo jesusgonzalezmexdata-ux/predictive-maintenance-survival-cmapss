@@ -5,7 +5,7 @@ import json
 import unittest
 
 import _support  # noqa: F401  (sys.path setup)
-from _support import FIXTURES, FIXTURE_PREFIX, ROOT
+from _support import FIXTURE_PREFIX, FIXTURES, ROOT
 
 from pm_survival import data as D
 

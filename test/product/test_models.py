@@ -8,10 +8,9 @@ from __future__ import annotations
 import unittest
 import warnings
 
+import _support  # noqa: F401
 import numpy as np
 import pandas as pd
-
-import _support  # noqa: F401
 
 from pm_survival import models as M
 

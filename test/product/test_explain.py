@@ -5,14 +5,13 @@ import unittest
 from pathlib import Path
 
 import _support  # noqa: F401
-from _support import FIXTURES, FIXTURE_PREFIX
+from _support import FIXTURE_PREFIX, FIXTURES
 
 from pm_survival import data as D
 from pm_survival import decision as Db
 from pm_survival import events as E
 from pm_survival import explain as X
 from pm_survival import models as M
-
 
 ROOT = Path(__file__).resolve().parents[2]
 

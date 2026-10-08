@@ -131,7 +131,7 @@ def render_model_card(p: dict, open_decisions: list[str], limitations: list[str]
         "## Limitations",
         "",
     ]
-    lines += [f"- {l}" for l in limitations]
+    lines += [f"- {item}" for item in limitations]
     lines += [
         "",
         "## Open decisions (verbatim from SPEC-001 §6)",

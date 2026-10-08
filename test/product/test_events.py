@@ -4,7 +4,7 @@ from __future__ import annotations
 import unittest
 
 import _support  # noqa: F401
-from _support import FIXTURES, FIXTURE_PREFIX
+from _support import FIXTURE_PREFIX, FIXTURES
 
 from pm_survival import data as D
 from pm_survival import events as E

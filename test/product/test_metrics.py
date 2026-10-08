@@ -6,9 +6,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-import numpy as np
-
 import _support  # noqa: F401
+import numpy as np
 
 from pm_survival import metrics as X
 from pm_survival import report as R

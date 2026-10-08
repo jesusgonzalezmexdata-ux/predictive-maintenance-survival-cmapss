@@ -7,6 +7,7 @@ Deploy: Streamlit Community Cloud / Docker (see README).
 """
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -29,7 +30,7 @@ st.caption(
     "No es una recomendación de planta en producción."
 )
 
-default_raw = ROOT / "data" / "raw" / "cmapss"
+default_raw = Path(os.environ.get("PM_RAW_DIR", ROOT / "data" / "raw" / "cmapss"))
 raw_dir = st.sidebar.text_input("Carpeta de datos locales (C-MAPSS)", value=str(default_raw))
 cp = st.sidebar.number_input("Costo del preventivo C_p (USD)", min_value=1.0, value=500.0, step=50.0)
 cf = st.sidebar.number_input("Costo de la falla correctiva C_f (USD)", min_value=2.0, value=5000.0, step=100.0)
@@ -58,16 +59,16 @@ except Exception as exc:  # noqa: BLE001 — show operator-facing error
     st.exception(exc)
     st.stop()
 
-cost = Db.recompute_cost(bundle.weibull, cp, cf)
+cost = Dec.recompute_cost(bundle.weibull, cp, cf)
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Tiempo de intervención sugerido (t*)", f"{cost.t_star:.0f} ciclos")
 col2.metric("Probabilidad de seguir operando en t*", f"{cost.reliability_at_t_star:.0%}")
 col3.metric("Costo esperado por ciclo en t*", f"{cost.cost_rate_at_t_star:.4f} × C_p")
 
-st.info(Db.intervention_message(cost))
+st.info(Dec.intervention_message(cost))
 
-curve = Db.reliability_curve(bundle.weibull)
+curve = Dec.reliability_curve(bundle.weibull)
 st.subheader("Confiabilidad del activo (promedio de flota)")
 st.line_chart(curve.set_index("ciclo"))
 st.caption(

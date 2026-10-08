@@ -1,0 +1,5 @@
+# Development / CI only (not needed to run the app).
+-r requirements.txt
+pytest>=8,<9
+ruff>=0.6
+matplotlib>=3.8,<4

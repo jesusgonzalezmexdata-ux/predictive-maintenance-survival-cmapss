@@ -3,9 +3,8 @@ from __future__ import annotations
 
 import unittest
 
-import numpy as np
-
 import _support  # noqa: F401
+import numpy as np
 
 from pm_survival import cost_policy as C
 from pm_survival.models import WeibullResult
@@ -17,7 +16,9 @@ def weibull(shape: float, scale: float = 200.0) -> WeibullResult:
 
 class CostRateTests(unittest.TestCase):
     def test_cost_rate_formula_matches_manual_computation(self):
-        R = lambda t: np.exp(-(np.asarray(t, float) / 100.0) ** 2.0)  # Weibull β=2, λ=100
+        def R(t):  # Weibull β=2, λ=100
+            return np.exp(-(np.asarray(t, float) / 100.0) ** 2.0)
+
         t = 50.0
         cp, cf = 1.0, 10.0
         grid = np.linspace(0, t, 20001)
