@@ -1,0 +1,11 @@
+{
+  "task_id": "TASK-009",
+  "status": "IMPLEMENTED",
+  "evidence": "app smoke test fails on the old NameError and passes on the fix; product-ci (ruff + pytest); MIT LICENSE; GREENFIELD-only kernel tests skipped when BROWNFIELD",
+  "activated_by": "OWNER (chat 2026-10-08: ejecuta estos tres pasos sin coautoría)",
+  "source_spec": "docs/specs/SPEC-003-condition-based-impact.md",
+  "intent_id": "INTENT-446E2407EF97",
+  "scope": ["app/streamlit_app.py", "test/product/test_app_smoke.py", ".github/workflows/product-ci.yml", "ruff.toml", "requirements-dev.txt", "LICENSE", "test/test_intent.py", "src/pm_survival/*.py (lint only)", "test/product/*.py (lint only)"],
+  "dependencies": ["TASK-008"],
+  "budget": {"max_repair_attempts": 3}
+}

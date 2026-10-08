@@ -51,6 +51,13 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument("--early-window", type=int, default=20)
     r.add_argument("--horizons", type=int, nargs="+", default=X.DEFAULT_HORIZONS)
     r.add_argument("--cost-ratio", type=float, default=10.0, help="C_f / C_p (DEC-013 default 10)")
+
+    s = sub.add_parser("study", help="SPEC-003: landmark model, baselines and maintenance-policy backtest")
+    s.add_argument("--raw-dir", type=Path, default=None, help=f"defaults to ${D.ENV_RAW_DIR}")
+    s.add_argument("--reports", type=Path, default=Path("reports"))
+    s.add_argument("--demo", type=Path, default=Path("reports/demo"))
+    s.add_argument("--repeats", type=int, default=5)
+    s.add_argument("--folds", type=int, default=5)
     return p
 
 
@@ -59,6 +66,18 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "extract":
         names = _extract(args.archive, args.out)
         print(json.dumps({"status": "PASS", "extracted": names, "out": str(args.out)}, indent=2))
+        return 0
+    if args.cmd == "study":
+        from .study import StudyConfig, run_study, write_outputs
+
+        try:
+            raw_dir = D.resolve_raw_dir(args.raw_dir)
+        except FileNotFoundError as exc:
+            print(json.dumps({"status": "BLOCKED", "reason": str(exc)}, indent=2), file=sys.stderr)
+            return 2
+        res = run_study(raw_dir, StudyConfig(n_repeats=args.repeats, n_folds=args.folds))
+        paths = write_outputs(res, args.reports, args.demo)
+        print(json.dumps({"status": "PASS", **paths, "test": res["test"]["metrics"]}, indent=2))
         return 0
     if args.cmd == "run":
         try:
