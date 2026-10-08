@@ -1,6 +1,8 @@
 {
   "task_id": "TASK-003",
-  "status": "ACTIVE",
+  "status": "IMPLEMENTED",
+  "evidence": "test/product/test_models.py 10 tests OK; real FD001 (seed 42 split): Weibull shape 4.601 scale 222.98 wear_out; Cox 8 slope covariates train C 0.765 / val C 0.778; PH holds (min p sensor_17 0.051) -> cox retained",
+  "limitation_recorded": "slope covariates over full training trajectories are partially confounded with duration (total drift / cycles); documented in model card (TASK-004)",
   "activated_by": "OWNER (HG-002 = A, 2026-10-07)",
   "source_spec": "docs/specs/SPEC-001-cmapss-survival-baseline.md#4.3",
   "intent_id": "INTENT-446E2407EF97",

@@ -1,6 +1,7 @@
 {
   "task_id": "TASK-004",
-  "status": "PROPOSED",
+  "status": "ACTIVE",
+  "activated_by": "OWNER (HG-002 = A, 2026-10-07)",
   "source_spec": "docs/specs/SPEC-001-cmapss-survival-baseline.md#4.4",
   "intent_id": "INTENT-446E2407EF97",
   "objective": "Compute C-index (and IBS over the approved horizon grid) on the held-out grouped split; write deterministic reports/eval_FD001.{json,md} and models/MODEL_CARD_FD001.md listing open decisions.",
