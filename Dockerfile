@@ -19,8 +19,9 @@ COPY data/raw/MANIFEST.json data/raw/README.md data/raw/AGENTS.md data/raw/SCOPE
 ENV PYTHONPATH=/app/src
 EXPOSE 8501
 
-# Mount or bake C-MAPSS under /data/cmapss at runtime:
-#   docker run -p 8501:8501 -v /path/to/cmapss:/data/cmapss ...
+# Runs in demo mode out of the box (derived artifacts in reports/demo).
+# Optional: mount NASA C-MAPSS to enable the per-engine explanation tab:
+#   docker run -p 8501:8501 -v /path/to/cmapss:/data/cmapss pm-survival
 ENV PM_RAW_DIR=/data/cmapss
 
 HEALTHCHECK CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health')" || exit 1

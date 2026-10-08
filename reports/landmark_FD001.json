@@ -19,6 +19,12 @@
     ],
     "decision_horizon": 10
   },
+  "fleet_weibull": {
+    "shape": 4.408714937980028,
+    "scale": 225.02585413831693,
+    "regime": "wear_out",
+    "n": 100
+  },
   "sensors": [
     "sensor_2",
     "sensor_3",

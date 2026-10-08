@@ -1,0 +1,18 @@
+{
+  "task_id": "TASK-009..TASK-011",
+  "session_id": "SESSION-2026-10-08-SPEC003",
+  "status": "IMPLEMENTED",
+  "ending_state": "Condition-based model, policy backtest and demo app published on main; live URL still OWNER",
+  "intent": "INTENT-446E2407EF97",
+  "verification": [
+    "66 product tests OK (pytest test/product)",
+    "governance tests OK (unittest discover -s test; GREENFIELD-only class skipped with reason)",
+    "ruff check OK (product scope)",
+    "repoctl verify PASS",
+    "python -m pm_survival study reproduces reports/landmark_FD001.json"
+  ],
+  "dependency_events": ["requirements-dev.txt added (pytest, ruff, matplotlib) — dev/CI only; runtime requirements unchanged"],
+  "blockers": ["Live Streamlit Cloud URL requires the OWNER's account", "Repository description/topics require the OWNER (GitHub settings)"],
+  "required_authority": "OWNER",
+  "next_governed_step": "OWNER: deploy app/streamlit_app.py on Streamlit Community Cloud and paste the URL into README"
+}
