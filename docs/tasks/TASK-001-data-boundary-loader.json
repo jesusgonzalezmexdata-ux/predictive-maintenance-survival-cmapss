@@ -1,6 +1,7 @@
 {
   "task_id": "TASK-001",
-  "status": "ACTIVE",
+  "status": "IMPLEMENTED",
+  "evidence": "test/product/test_data.py 9 tests OK; real FD001 train 20631 rows/100 units validated; commit b5d7a73",
   "activated_by": "OWNER (HG-002 = A, 2026-10-07)",
   "source_spec": "docs/specs/SPEC-001-cmapss-survival-baseline.md#4.1",
   "intent_id": "INTENT-446E2407EF97",

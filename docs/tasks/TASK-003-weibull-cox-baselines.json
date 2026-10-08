@@ -1,6 +1,7 @@
 {
   "task_id": "TASK-003",
-  "status": "PROPOSED",
+  "status": "ACTIVE",
+  "activated_by": "OWNER (HG-002 = A, 2026-10-07)",
   "source_spec": "docs/specs/SPEC-001-cmapss-survival-baseline.md#4.3",
   "intent_id": "INTENT-446E2407EF97",
   "objective": "Fit Weibull parametric and Cox PH baselines on the survival table; run proportional-hazards assumption test; record fallback to Weibull AFT when PH fails. Deterministic seeds.",
