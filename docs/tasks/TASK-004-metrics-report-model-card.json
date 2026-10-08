@@ -1,6 +1,7 @@
 {
   "task_id": "TASK-004",
-  "status": "ACTIVE",
+  "status": "IMPLEMENTED",
+  "evidence": "test/product/test_metrics.py 9 tests OK (C-index, IPCW Brier, IBS, deterministic JSON, model card AC-8); real-data artifacts emitted by TASK-006 run",
   "activated_by": "OWNER (HG-002 = A, 2026-10-07)",
   "source_spec": "docs/specs/SPEC-001-cmapss-survival-baseline.md#4.4",
   "intent_id": "INTENT-446E2407EF97",
