@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "default_profile": "M1_GUARDED",
+  "profiles": [
+    {
+      "id": "M0_SEED",
+      "rank": 0,
+      "enforced_points": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        14,
+        19
+      ]
+    },
+    {
+      "id": "M1_GUARDED",
+      "rank": 1,
+      "enforced_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        14,
+        15,
+        19
+      ]
+    },
+    {
+      "id": "M2_GOVERNED",
+      "rank": 2,
+      "enforced_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        19
+      ]
+    },
+    {
+      "id": "M3_SHADOW",
+      "rank": 3,
+      "enforced_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        19
+      ]
+    },
+    {
+      "id": "M4_FEDERATED",
+      "rank": 4,
+      "enforced_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19
+      ]
+    },
+    {
+      "id": "M5_ECONOMIC",
+      "rank": 5,
+      "enforced_points": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    }
+  ],
+  "rule": "A capability may exist below its activation maturity, but it MUST NOT exercise effectful authority until its profile is active and its authority gate is satisfied."
+}

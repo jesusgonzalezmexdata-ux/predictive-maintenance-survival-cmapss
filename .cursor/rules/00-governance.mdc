@@ -1,0 +1,38 @@
+---
+description: Canonical repository governance compiled from MDA
+globs: "**/*"
+alwaysApply: true
+---
+# Universal Agent Behavior Contract
+
+## Identity and source of truth
+- This repository is governed by MDA. `.mda/source/` is canonical; generated adapter files are disposable outputs.
+- Never treat a tool-specific file as a higher authority than the canonical MDA source.
+- Before effectful work run `python .scripts/repoctl.py preflight --path <target>`.
+
+## Authority
+- Separate the abilities to OBSERVE, PROPOSE, MATERIALIZE, VERIFY, PROMOTE, RELEASE and SPEND.
+- No agent may self-promote its own authority.
+- Architecture/policy promotion, production release, federation publishing and economic spending require the authority defined in `config/authority.json`.
+
+## Intent bootstrap
+- If an owner-authored intent exists, normalize it through `repoctl ingest` / `reconcile-intake` before inventing repository topology.
+- Intent may create architecture scaffolding, contracts and specs; it never grants unbounded product implementation authority.
+- Missing semantics must be surfaced as decisions rather than silently inferred as requirements.
+
+## Workflow
+1. Resolve root and nearest local contracts.
+2. Determine repository and target state; never infer implementation requirements from an empty directory alone.
+3. Produce a bounded plan/spec before non-trivial mutation.
+4. Change only files inside approved scope.
+5. Run deterministic verification through `repoctl`/`Makefile`; do not claim success from model judgment.
+6. Emit a handoff/evidence record for governed tasks.
+
+## Safety and scope
+- Never delete data, rewrite history, disable controls, expose secrets, alter `.env`, or make production releases without explicit authority.
+- Do not add dependencies merely to simplify implementation; dependency changes are supply-chain events.
+- Maximum autonomous repair attempts for the same failure class: 3. Then stop and create an incident/blocker report.
+- Scheduled governance work is read-only with respect to canonical/product state; it may append evidence and reports only.
+
+## Completion standard
+A task is complete only when intended changes exist, deterministic checks pass, unauthorized scope is unchanged, and evidence identifies what was verified. If any of those conditions is unknown, report BLOCKED or INCONCLUSIVE instead of PASS.

@@ -1,0 +1,38 @@
+{
+  "name": "MULTIAGENTS_MASTER",
+  "architecture": "MDA Governance Kernel",
+  "schema_version": "2.0.0",
+  "governance_version": "2.0.0",
+  "default_maturity": "M1_GUARDED",
+  "canonical_sources": [
+    ".mda/source/behavior.mda.md",
+    ".mda/source/capability-map.mda.json",
+    ".mda/source/maturity.mda.json",
+    ".mda/source/authority.mda.json",
+    ".mda/source/events.mda.json",
+    ".mda/source/folders.mda.json",
+    ".mda/source/intake.mda.json",
+    ".mda/source/scaffold-profiles.mda.json"
+  ],
+  "generated_adapters": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "GEMINI.md",
+    "CONVENTIONS.md",
+    ".cursor/rules/00-governance.mdc",
+    ".github/copilot-instructions.md",
+    ".windsurf/rules/00-governance.md",
+    ".aider.conf.yml"
+  ],
+  "invariants": [
+    "CORE_CONTRACT != TOOL_ADAPTER",
+    "NO_SELF_PROMOTION_OF_AUTHORITY",
+    "DETERMINISTIC_EVIDENCE_OVER_AGENT_CLAIMS",
+    "SCHEDULED_JOBS_CANNOT_MUTATE_CANONICAL_OR_PRODUCT_STATE",
+    "MISSING_NATIVE_HOOKS_MUST_BE_REPLACED_BY_EXTERNAL_ENFORCEMENT",
+    "DISABLED_CAPABILITIES_MAY_NOT_EXERCISE_EFFECTFUL_AUTHORITY",
+    "HUMAN_INTENT_PRECEDES_GENERATED_ARCHITECTURE",
+    "INTAKE_MAY_SCAFFOLD_BUT_NOT_IMPLEMENT_PRODUCT",
+    "MISSING_SEMANTICS_MUST_SURFACE_AS_DECISIONS"
+  ]
+}

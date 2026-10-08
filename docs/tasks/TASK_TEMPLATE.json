@@ -1,0 +1,10 @@
+{
+  "task_id": "TASK-000",
+  "objective": "",
+  "scope": [],
+  "authority": "",
+  "budget": {
+    "max_repair_attempts": 3
+  },
+  "acceptance_criteria": []
+}

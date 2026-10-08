@@ -1,0 +1,29 @@
+{
+  "schema_version": "2.0.0",
+  "intent_id": "INTENT-B8EFB6BFC67C",
+  "source": "intake/sources/ASEGURAR_soluciones de negocio validadas con rigor científico.md",
+  "intent_class": "PROJECT",
+  "project_kind": "GENERIC",
+  "title": "ASEGURAR soluciones de negocio validadas con rigor científico",
+  "objective": "",
+  "vision": "",
+  "target": ".",
+  "scope": [],
+  "constraints": [],
+  "deliverables": [],
+  "acceptance_criteria": [],
+  "non_goals": [],
+  "missing_decisions": [
+    "objective_or_vision"
+  ],
+  "recommended_missing": [
+    "constraints",
+    "deliverables",
+    "acceptance_criteria",
+    "non_goals"
+  ],
+  "content_hash": "b8efb6bfc67ccfd4c09a5a3577d80e6d178df24cbf5c61a031bad4e3a0855e68",
+  "state": "NEEDS_DECISION",
+  "ingested_at": "2026-10-08T00:18:47.082823Z",
+  "materialization": "SCAFFOLD_ONLY"
+}

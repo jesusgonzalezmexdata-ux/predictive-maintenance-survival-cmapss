@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+set -eu
+python .scripts/repoctl.py verify --fast
+python .scripts/repoctl.py security-scan

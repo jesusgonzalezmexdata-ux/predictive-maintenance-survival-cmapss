@@ -1,0 +1,12 @@
+{
+  "schema_version": "2.0.0",
+  "inbox": "intake",
+  "auto_scaffold_inbox": true,
+  "auto_implement_product": false,
+  "recursive_marker": "MDA-Intent",
+  "recursive_marker_value": "true",
+  "recognized_names": ["OBJECTIVE.md", "INTENT.md", "VISION.md"],
+  "default_materialization": "SCAFFOLD_ONLY",
+  "require_owner_for_product_implementation": true,
+  "generated_intent_root": "docs/intents"
+}

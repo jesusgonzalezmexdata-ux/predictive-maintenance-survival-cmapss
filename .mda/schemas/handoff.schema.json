@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "task_id",
+    "actor",
+    "status",
+    "scope",
+    "verification"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "actor": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "INCONCLUSIVE",
+        "PARTIAL"
+      ]
+    },
+    "scope": {
+      "type": "array"
+    },
+    "verification": {
+      "type": "array"
+    }
+  }
+}

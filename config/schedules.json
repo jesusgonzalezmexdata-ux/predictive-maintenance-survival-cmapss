@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "jobs": [
+    {
+      "id": "daily-drift",
+      "cadence": "DAILY",
+      "effect_scope": "EVIDENCE_ONLY",
+      "command": "python .scripts/repoctl.py scheduled daily-drift"
+    },
+    {
+      "id": "weekly-agent-qa",
+      "cadence": "WEEKLY",
+      "effect_scope": "EVIDENCE_ONLY",
+      "command": "python .scripts/repoctl.py scheduled weekly-agent-qa"
+    },
+    {
+      "id": "monthly-governance-review",
+      "cadence": "MONTHLY",
+      "effect_scope": "EVIDENCE_AND_PROPOSALS_ONLY",
+      "command": "python .scripts/repoctl.py scheduled monthly-governance-review"
+    }
+  ]
+}

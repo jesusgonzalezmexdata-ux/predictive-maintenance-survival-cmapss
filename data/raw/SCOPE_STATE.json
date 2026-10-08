@@ -1,0 +1,9 @@
+{
+  "scope": "data/raw",
+  "scope_class": "PRODUCT",
+  "state": "DECLARED_UNMATERIALIZED",
+  "objective": "Immutable or externally sourced raw data boundary; never commit sensitive datasets by default.",
+  "write_policy": "APPROVED_TASK",
+  "intent_id": "INTENT-446E2407EF97",
+  "intent_source": "intake/OBJECTIVE.md"
+}

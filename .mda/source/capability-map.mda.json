@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0.0",
+  "capabilities": [
+    {
+      "id": "P01",
+      "point": 1,
+      "name": "Universal File Architecture / MDA",
+      "tier": "TIER_1",
+      "minimum_maturity": "M0_SEED",
+      "default_state": "ENFORCED",
+      "enforcement_mode": "CORE",
+      "objective": "Single canonical source compiled to tool-native adapters."
+    },
+    {
+      "id": "P02",
+      "point": 2,
+      "name": "Base Behavior Contract / AGENTS.md",
+      "tier": "TIER_1",
+      "minimum_maturity": "M0_SEED",
+      "default_state": "ENFORCED",
+      "enforcement_mode": "CORE",
+      "objective": "Define non-negotiable behavior and authority boundaries."
+    },
+    {
+      "id": "P03",
+      "point": 3,
+      "name": "Routing Matrix: Frontier vs Local",
+      "tier": "TIER_1",
+      "minimum_maturity": "M1_GUARDED",
+      "default_state": "ENABLED",
+      "enforcement_mode": "POLICY",
+      "objective": "Route tasks by risk, complexity, privacy and cost."
+    },
+    {
+      "id": "P04",
+      "point": 4,
+      "name": "Deterministic Guardrails and Sandboxing",
+      "tier": "TIER_1",
+      "minimum_maturity": "M1_GUARDED",
+      "default_state": "ENFORCED",
+      "enforcement_mode": "EXTERNAL",
+      "objective": "Enforce filesystem, command and execution boundaries outside model discretion."
+    },
+    {
+      "id": "P05",
+      "point": 5,
+      "name": "Agnostic Execution Contract and Reproducibility",
+      "tier": "TIER_1",
+      "minimum_maturity": "M0_SEED",
+      "default_state": "ENFORCED",
+      "enforcement_mode": "CORE",
+      "objective": "Expose stable verification commands independent of language/framework."
+    },
+    {
+      "id": "P06",
+      "point": 6,
+      "name": "Daily Work Protocol",
+      "tier": "TIER_2",
+      "minimum_maturity": "M0_SEED",
+      "default_state": "ENFORCED",
+      "enforcement_mode": "CORE",
+      "objective": "Require Context -> Plan -> Execute -> Verify -> Handoff."
+    },
+    {
+      "id": "P07",
+      "point": 7,
+      "name": "Multi-Environment Synchronization",
+      "tier": "TIER_2",
+      "minimum_maturity": "M0_SEED",
+      "default_state": "ENFORCED",
+      "enforcement_mode": "CORE",
+      "objective": "Generate every adapter from canonical MDA and detect drift."
+    },
+    {
+      "id": "P08",
+      "point": 8,
+      "name": "Structured Memory and Decay",
+      "tier": "TIER_2",
+      "minimum_maturity": "M1_GUARDED",
+      "default_state": "ENABLED",
+      "enforcement_mode": "POLICY",
+      "objective": "Separate ephemeral session memory from governed long-term decisions."
+    },
+    {
+      "id": "P09",
+      "point": 9,
+      "name": "Traceability, Telemetry and Forensic Log",
+      "tier": "TIER_2",
+      "minimum_maturity": "M1_GUARDED",
+      "default_state": "ENFORCED",
+      "enforcement_mode": "CORE",
+      "objective": "Maintain append-only hash-chained evidence of governed actions."
+    },
+    {
+      "id": "P10",
+      "point": 10,
+      "name": "Circuit Breakers and Recovery",
+      "tier": "TIER_2",
+      "minimum_maturity": "M1_GUARDED",
+      "default_state": "ENFORCED",
+      "enforcement_mode": "CORE",
+      "objective": "Stop autonomous loops and escalate after bounded retries."
+    },
+    {
+      "id": "P11",
+      "point": 11,
+      "name": "Evolutionary Governance and Meta-Learning",
+      "tier": "TIER_3",
+      "minimum_maturity": "M2_GOVERNED",
+      "default_state": "CONFIGURED",
+      "enforcement_mode": "HUMAN_GATED",
+      "objective": "Convert incidents into proposed governance changes; never auto-promote them."
+    },
+    {
+      "id": "P12",
+      "point": 12,
+      "name": "Continuous Agent QA and Benchmarking",
+      "tier": "TIER_3",
+      "minimum_maturity": "M2_GOVERNED",
+      "default_state": "CONFIGURED",
+      "enforcement_mode": "CI",
+      "objective": "Evaluate agent behavior before governance changes are promoted."
+    },
+    {
+      "id": "P13",
+      "point": 13,
+      "name": "Resource and Token Economy Governance",
+      "tier": "TIER_3",
+      "minimum_maturity": "M2_GOVERNED",
+      "default_state": "CONFIGURED",
+      "enforcement_mode": "POLICY",
+      "objective": "Bound model, token, CPU/GPU and monetary consumption per task."
+    },
+    {
+      "id": "P14",
+      "point": 14,
+      "name": "Human-Agent Onboarding and Context Transfer",
+      "tier": "TIER_3",
+      "minimum_maturity": "M0_SEED",
+      "default_state": "ENFORCED",
+      "enforcement_mode": "CORE",
+      "objective": "Make repository entry deterministic for humans and agents."
+    },
+    {
+      "id": "P15",
+      "point": 15,
+      "name": "Data Security, Prompt Privacy and Supply Chain",
+      "tier": "TIER_3",
+      "minimum_maturity": "M1_GUARDED",
+      "default_state": "ENABLED",
+      "enforcement_mode": "EXTERNAL",
+      "objective": "Prevent secret leakage and unsafe dependency introduction."
+    },
+    {
+      "id": "P16",
+      "point": 16,
+      "name": "Repository Digital Twin / Shadow Simulation",
+      "tier": "TIER_4",
+      "minimum_maturity": "M3_SHADOW",
+      "default_state": "DECLARED",
+      "enforcement_mode": "HUMAN_GATED",
+      "objective": "Simulate candidate plans in isolated worktrees before real mutation."
+    },
+    {
+      "id": "P17",
+      "point": 17,
+      "name": "Federated Cross-Repository Swarm Intelligence",
+      "tier": "TIER_4",
+      "minimum_maturity": "M4_FEDERATED",
+      "default_state": "DECLARED",
+      "enforcement_mode": "HUMAN_GATED",
+      "objective": "Share abstract patterns without source code or identifying context."
+    },
+    {
+      "id": "P18",
+      "point": 18,
+      "name": "Autonomous Economic Agency",
+      "tier": "TIER_4",
+      "minimum_maturity": "M5_ECONOMIC",
+      "default_state": "DECLARED",
+      "enforcement_mode": "HUMAN_GATED",
+      "objective": "Optimize compute/model spend inside explicit signing limits."
+    },
+    {
+      "id": "P19",
+      "point": 19,
+      "name": "Orchestration, Subagents and Event Fabric",
+      "tier": "TIER_4",
+      "minimum_maturity": "M0_SEED",
+      "default_state": "ENFORCED",
+      "enforcement_mode": "CORE",
+      "objective": "Define who acts, when events fire and how handoffs are recorded."
+    }
+  ]
+}

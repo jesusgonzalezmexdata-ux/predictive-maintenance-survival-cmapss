@@ -1,0 +1,30 @@
+{
+  "task_id": "TASK-001",
+  "status": "ACTIVE",
+  "activated_by": "OWNER (HG-002 = A, 2026-10-07)",
+  "source_spec": "docs/specs/SPEC-001-cmapss-survival-baseline.md#4.1",
+  "intent_id": "INTENT-446E2407EF97",
+  "objective": "Declare the C-MAPSS FD001 raw data boundary (manifest with archive SHA256 + file sizes), implement an offline loader that reads the 26-column whitespace format from a configurable local path, and validate schema (100 units, 20631 rows for train_FD001).",
+  "scope": ["data/raw", "src/pm_survival/data.py", "src/pm_survival/__init__.py", "test/product/test_data.py", "test/product/fixtures/"],
+  "expected_output": [
+    "data/raw/MANIFEST.json",
+    "data/raw/README.md",
+    "src/pm_survival/data.py (load_fd, validate_schema)",
+    "test/product/fixtures/mini_FD001_train.txt (<=200 rows synthetic)",
+    "test/product/test_data.py"
+  ],
+  "acceptance_criteria": [
+    "AC-7: no raw dataset copied into git unless DEC-004 approves",
+    "load_fd returns typed frame with columns unit_id, cycle, op_setting_1..3, sensor_1..21",
+    "validate_schema raises on wrong column count",
+    "tests run offline on fixture"
+  ],
+  "validation_commands": [
+    "python -m unittest discover -s test/product -p 'test_*.py'",
+    "python .scripts/repoctl.py verify",
+    "python .scripts/repoctl.py security-scan"
+  ],
+  "authority": "A4_TDD_GUIDE (MATERIALIZE) after OWNER activation",
+  "dependencies": ["DEC-003", "DEC-004", "DEC-010 (pandas/numpy)"],
+  "budget": { "max_repair_attempts": 3 }
+}

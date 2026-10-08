@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0.0",
+  "agents": [
+    {
+      "id": "A1",
+      "slug": "A1-orchestrator",
+      "name": "Orchestrator",
+      "authority": "OBSERVE, PROPOSE"
+    },
+    {
+      "id": "A2",
+      "slug": "A2-deterministic-auditor",
+      "name": "Deterministic Auditor",
+      "authority": "OBSERVE, VERIFY"
+    },
+    {
+      "id": "A3",
+      "slug": "A3-code-reviewer",
+      "name": "Code Reviewer",
+      "authority": "OBSERVE, VERIFY, PROPOSE"
+    },
+    {
+      "id": "A4",
+      "slug": "A4-tdd-guide",
+      "name": "TDD Guide",
+      "authority": "OBSERVE, PROPOSE, MATERIALIZE"
+    },
+    {
+      "id": "A5",
+      "slug": "A5-security-agent",
+      "name": "Security Agent",
+      "authority": "OBSERVE, VERIFY, PROPOSE"
+    },
+    {
+      "id": "A6",
+      "slug": "A6-planner",
+      "name": "Planner",
+      "authority": "OBSERVE, PROPOSE"
+    },
+    {
+      "id": "A7",
+      "slug": "A7-documenter",
+      "name": "Documenter",
+      "authority": "OBSERVE, PROPOSE, MATERIALIZE"
+    },
+    {
+      "id": "A8",
+      "slug": "A8-deployer",
+      "name": "Deployer",
+      "authority": "OBSERVE, MATERIALIZE"
+    },
+    {
+      "id": "A9",
+      "slug": "A9-observer",
+      "name": "Observer",
+      "authority": "OBSERVE"
+    }
+  ]
+}

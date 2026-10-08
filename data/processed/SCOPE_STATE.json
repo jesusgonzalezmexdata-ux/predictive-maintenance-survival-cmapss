@@ -1,0 +1,9 @@
+{
+  "scope": "data/processed",
+  "scope_class": "PRODUCT",
+  "state": "DECLARED_UNMATERIALIZED",
+  "objective": "Derived datasets and deterministic processing outputs.",
+  "write_policy": "APPROVED_TASK",
+  "intent_id": "INTENT-446E2407EF97",
+  "intent_source": "intake/OBJECTIVE.md"
+}

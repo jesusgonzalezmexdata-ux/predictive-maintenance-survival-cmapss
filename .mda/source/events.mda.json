@@ -1,0 +1,92 @@
+{
+  "schema_version": "2.0.0",
+  "events": {
+    "agent_spawn": {
+      "mode": "EVENT_DRIVEN",
+      "handlers": [
+        "preflight",
+        "context_package",
+        "budget_assignment",
+        "audit_append"
+      ]
+    },
+    "task_start": {
+      "mode": "EVENT_DRIVEN",
+      "handlers": [
+        "state_detect",
+        "scope_resolve",
+        "context_package",
+        "audit_append"
+      ]
+    },
+    "pre_write": {
+      "mode": "EVENT_DRIVEN",
+      "handlers": [
+        "scope_guard",
+        "secret_guard",
+        "authority_guard",
+        "audit_append"
+      ]
+    },
+    "post_write": {
+      "mode": "EVENT_DRIVEN",
+      "handlers": [
+        "drift_check",
+        "audit_append"
+      ]
+    },
+    "pre_commit": {
+      "mode": "EVENT_DRIVEN",
+      "handlers": [
+        "verify_fast",
+        "security_scan",
+        "audit_append"
+      ]
+    },
+    "task_complete": {
+      "mode": "EVENT_DRIVEN",
+      "handlers": [
+        "verify_full",
+        "handoff_required",
+        "audit_append"
+      ]
+    },
+    "daily_drift": {
+      "mode": "SCHEDULED",
+      "effect_scope": "EVIDENCE_ONLY"
+    },
+    "weekly_agent_qa": {
+      "mode": "SCHEDULED",
+      "effect_scope": "EVIDENCE_ONLY"
+    },
+    "monthly_governance_review": {
+      "mode": "SCHEDULED",
+      "effect_scope": "EVIDENCE_AND_PROPOSALS_ONLY"
+    },
+    "circuit_breaker": {
+      "mode": "CONDITION_DRIVEN",
+      "handlers": [
+        "freeze_scope",
+        "incident_report",
+        "human_escalation"
+      ]
+    },
+    "intent_arrival": {
+      "mode": "EVENT_DRIVEN",
+      "handlers": [
+        "intent_parse",
+        "intent_normalize",
+        "semantic_gap_check",
+        "architecture_synthesize",
+        "scope_scaffold",
+        "adapter_compile",
+        "audit_append"
+      ],
+      "effect_scope": "ARCHITECTURE_SCAFFOLD_ONLY",
+      "forbid": [
+        "product_implementation",
+        "governance_self_promotion"
+      ]
+    }
+  }
+}

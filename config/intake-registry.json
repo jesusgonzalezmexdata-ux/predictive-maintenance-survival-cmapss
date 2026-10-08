@@ -1,0 +1,29 @@
+{
+  "schema_version": "2.0.0",
+  "entries": {
+    "intake/sources/ASEGURAR_soluciones de negocio validadas con rigor científico.md": {
+      "intent_id": "INTENT-B8EFB6BFC67C",
+      "content_hash": "b8efb6bfc67ccfd4c09a5a3577d80e6d178df24cbf5c61a031bad4e3a0855e68",
+      "state": "NEEDS_DECISION",
+      "last_ingested_at": "2026-10-08T00:18:47.088910Z",
+      "artifact_root": "docs/intents/INTENT-B8EFB6BFC67C",
+      "conflicts": []
+    },
+    "intake/sources/Proyecto_5_Mantenimiento predictivo con análisis de supervivencia (Weibull y Cox).md": {
+      "intent_id": "INTENT-A65ACF71731C",
+      "content_hash": "a65acf71731cb282d7a8769262f5ea5c4fa3acd9c47e1ea21e05ba4533947e6f",
+      "state": "NEEDS_DECISION",
+      "last_ingested_at": "2026-10-08T00:18:47.110431Z",
+      "artifact_root": "docs/intents/INTENT-A65ACF71731C",
+      "conflicts": []
+    },
+    "intake/OBJECTIVE.md": {
+      "intent_id": "INTENT-446E2407EF97",
+      "content_hash": "446e2407ef97799a10e639a45a5a03145097c078c0a38953983d71ff97252ef4",
+      "state": "SCAFFOLDED",
+      "last_ingested_at": "2026-10-08T00:25:18.976625Z",
+      "artifact_root": "docs/intents/INTENT-446E2407EF97",
+      "conflicts": []
+    }
+  }
+}

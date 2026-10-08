@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0.0",
+  "network_default": "DENY_WHEN_PRACTICAL",
+  "host_fs_default": "DENY",
+  "workspace_write": "TASK_SCOPED",
+  "secrets_mount": "DENY_BY_DEFAULT",
+  "privileged": "FORBIDDEN_BY_DEFAULT"
+}

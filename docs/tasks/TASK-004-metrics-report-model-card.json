@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-004",
+  "status": "PROPOSED",
+  "source_spec": "docs/specs/SPEC-001-cmapss-survival-baseline.md#4.4",
+  "intent_id": "INTENT-446E2407EF97",
+  "objective": "Compute C-index (and IBS over the approved horizon grid) on the held-out grouped split; write deterministic reports/eval_FD001.{json,md} and models/MODEL_CARD_FD001.md listing open decisions.",
+  "scope": ["src/pm_survival/metrics.py", "src/pm_survival/report.py", "reports/", "models/", "test/product/test_metrics.py"],
+  "expected_output": [
+    "src/pm_survival/metrics.py (concordance, integrated_brier)",
+    "src/pm_survival/report.py (write_eval, write_model_card)",
+    "reports/eval_FD001.json, reports/eval_FD001.md",
+    "models/MODEL_CARD_FD001.md"
+  ],
+  "acceptance_criteria": [
+    "AC-5: report has C-index, PH p-values, Weibull params, fallback decision",
+    "AC-8: model card lists SPEC-001 §6 open decisions verbatim",
+    "JSON written with sorted keys; two consecutive runs are byte-identical",
+    "AC-7: no file > 1 MB"
+  ],
+  "validation_commands": [
+    "python -m unittest discover -s test/product -p 'test_*.py'",
+    "python .scripts/repoctl.py verify"
+  ],
+  "authority": "A4_TDD_GUIDE (MATERIALIZE) after OWNER activation",
+  "dependencies": ["TASK-003", "DEC-011", "DEC-012"],
+  "budget": { "max_repair_attempts": 3 }
+}

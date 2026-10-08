@@ -1,0 +1,19 @@
+{
+  "enabled": false,
+  "minimum_maturity": "M4_FEDERATED",
+  "require_owner_approval": true,
+  "allowed_fields": [
+    "stack_class",
+    "problem_class",
+    "solution_pattern",
+    "success_metrics"
+  ],
+  "forbidden_fields": [
+    "source_code",
+    "paths",
+    "identifiers",
+    "prompts",
+    "secrets",
+    "pii"
+  ]
+}

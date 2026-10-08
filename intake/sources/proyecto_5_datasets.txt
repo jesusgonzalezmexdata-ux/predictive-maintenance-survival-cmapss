@@ -1,0 +1,7 @@
+Los enlaces definitivos son:
+UCI AI4I 2020 Predictive Maintenance Dataset (Enfoque: Datos tabulares, modos de falla y optimización de costos).
+🔗 Link: https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset
+NASA C-MAPSS Turbofan Engine Degradation (Enfoque: Estándar de oro en series de tiempo, desgaste progresivo y censura por la derecha).
+🔗 Link: https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip
+Kaggle NASA C-MAPSS (Versión pre-procesada para Supervivencia) (Enfoque: Ahorro de tiempo en ingeniería de características para formatos time-to-event).
+🔗 Link: https://www.kaggle.com/datasets/bishals098/nasa-turbofan-engine-degradation-simulation

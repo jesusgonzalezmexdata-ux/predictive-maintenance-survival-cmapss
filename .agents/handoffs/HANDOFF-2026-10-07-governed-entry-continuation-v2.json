@@ -1,0 +1,86 @@
+{
+  "task_id": "SESSION-2026-10-07-GOVERNED-ENTRY-CONTINUATION-V2",
+  "session_id": "SESSION-2026-10-07-GEC-002",
+  "actor": "A1_ORCHESTRATOR",
+  "status": "BLOCKED",
+  "starting_state": "B + CASE_D_PREP_COMPLETE / HG-001 pending (prior GEC-001); new SRC-006/SRC-007 present",
+  "ending_state": "C_PARTIAL: sources discoverable + quarantined NEEDS_DECISION ingest; TRUE_HUMAN_GATE HG-001+DEC-006",
+  "repository_classification": "C = GREENFIELD / INTENT PENDING INGESTION (owner-trusted); kernel has non-promoted NEEDS_DECISION from sources",
+  "intent": null,
+  "intent_status": "NO_OWNER_PROMOTED_CANONICAL; QUARANTINED_KERNEL_BUNDLES_EXIST; NON_NORMATIVE_PROPOSAL_UPDATED",
+  "scope": [
+    ".logs/reports/2026-10-07_SOURCE_INVENTORY_v2.json",
+    ".logs/reports/2026-10-07_SOURCE_QUALIFICATION_v2.md",
+    "docs/proposals/INTENT-PROPOSAL-predictive-maintenance-survival.md",
+    "docs/proposals/DECISION-REQUIRED-SELECT-CANONICAL-OBJECTIVE.md",
+    "docs/intents/INTENT-A65ACF71731C/QUARANTINE.md",
+    "docs/intents/INTENT-B8EFB6BFC67C/QUARANTINE.md",
+    "docs/incident-reports/INCIDENT-2026-10-07-SOURCE-AS-INTENT-DISCOVERY.md",
+    ".agents/handoffs/HANDOFF-2026-10-07-governed-entry-continuation-v2.json"
+  ],
+  "scopes_touched": [
+    ".logs/reports",
+    "docs/proposals",
+    "docs/intents",
+    "docs/incident-reports",
+    ".agents/handoffs",
+    "config/intake-registry.json"
+  ],
+  "artifacts_created": [
+    ".logs/reports/2026-10-07_SOURCE_INVENTORY_v2.json",
+    ".logs/reports/2026-10-07_SOURCE_QUALIFICATION_v2.md",
+    "docs/intents/INTENT-A65ACF71731C/QUARANTINE.md",
+    "docs/intents/INTENT-B8EFB6BFC67C/QUARANTINE.md",
+    "docs/incident-reports/INCIDENT-2026-10-07-SOURCE-AS-INTENT-DISCOVERY.md",
+    ".agents/handoffs/HANDOFF-2026-10-07-governed-entry-continuation-v2.json"
+  ],
+  "artifacts_modified": [
+    "docs/proposals/INTENT-PROPOSAL-predictive-maintenance-survival.md",
+    "docs/proposals/DECISION-REQUIRED-SELECT-CANONICAL-OBJECTIVE.md",
+    "config/intake-registry.json",
+    "docs/intents/INTENT-A65ACF71731C/*",
+    "docs/intents/INTENT-B8EFB6BFC67C/*"
+  ],
+  "sources_used": [
+    "intake/sources/ASEGURAR_soluciones de negocio validadas con rigor científico.md",
+    "intake/sources/Proyecto_5_Mantenimiento predictivo con análisis de supervivencia (Weibull y Cox).md",
+    "intake/sources/proyecto_5_datasets.txt",
+    "intake/sources/*.zip (hashes only; not re-expanded)",
+    "docs/INTENT_BOOTSTRAP.md",
+    ".mda/source/intake.mda.json",
+    "config/intake.json",
+    ".agents/handoffs/HANDOFF-2026-10-07-governed-entry-continuation.json"
+  ],
+  "decisions_applied": [],
+  "decisions_pending": [
+    "HG-001 / DEC-001 SELECT_CANONICAL_OBJECTIVE (A|B|C)",
+    "DEC-006 disposition of quarantined INTENT-A65 and INTENT-B8EF (Q1|Q2|Q3)",
+    "DEC-002 PROJECT_KIND DATA_SCIENCE vs RESEARCH",
+    "DEC-003 Canonical NASA packaging",
+    "DEC-004 Dataset retention / git policy",
+    "DEC-005 Kaggle survival preprocess inclusion",
+    "DEC-007 optional: exclude intake/sources from discover()"
+  ],
+  "verification": [
+    "python .scripts/repoctl.py inspect",
+    "python .scripts/repoctl.py preflight --path .",
+    "python .scripts/repoctl.py context .",
+    "python .scripts/repoctl.py discover-intents",
+    "python .scripts/repoctl.py reconcile-intake --proposal-only",
+    "python .scripts/repoctl.py verify",
+    "python .scripts/repoctl.py audit-verify"
+  ],
+  "validation_result": "KERNEL_PASS; WORKFLOW_ADVANCED_TO_OWNER_GATE; QUARANTINE_OF_SOURCE_INGEST; IMPLEMENTATION_NOT_ATTEMPTED",
+  "audit_status": "PASS; head=2acb379a507ac2280ad77bf7de294ad5e8c8d9e7f8b0b0f6f3ebb20d2d3d9009; event=session_governed_entry_continuation_v2",
+  "blockers": [
+    "No owner-authored trusted canonical intent Markdown outside sources/",
+    "Quarantined source-derived NEEDS_DECISION intents must not be used as promotion authority",
+    "Cannot scaffold product architecture without inventing objective_or_vision"
+  ],
+  "next_governed_step": "OWNER replies HG-001=A|B|C and DEC-006=Q1|Q2|Q3; place intake/OBJECTIVE.md; then reconcile-intake",
+  "required_authority": "OWNER",
+  "next_authority": "OWNER",
+  "implementation_allowed": false,
+  "true_human_gate": "HG-001-SELECT-CANONICAL-OBJECTIVE + DEC-006",
+  "safe_autonomous_work_remaining": false
+}

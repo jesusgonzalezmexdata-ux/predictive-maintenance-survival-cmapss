@@ -1,0 +1,9 @@
+{
+  "scope": "reports",
+  "scope_class": "PRODUCT",
+  "state": "DECLARED_UNMATERIALIZED",
+  "objective": "Generated analytical reports and evidence.",
+  "write_policy": "APPROVED_TASK",
+  "intent_id": "INTENT-446E2407EF97",
+  "intent_source": "intake/OBJECTIVE.md"
+}

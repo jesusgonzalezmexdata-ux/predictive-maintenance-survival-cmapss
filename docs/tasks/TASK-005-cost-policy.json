@@ -1,0 +1,24 @@
+{
+  "task_id": "TASK-005",
+  "status": "PROPOSED",
+  "source_spec": "docs/specs/SPEC-001-cmapss-survival-baseline.md#4.5",
+  "intent_id": "INTENT-446E2407EF97",
+  "objective": "Implement the expected cost-per-unit-time function C(t) = (Cp*R(t) + Cf*(1-R(t))) / integral_0^t R(x)dx and optimal_time(Cp, Cf, R) returning t*; pure functions with numeric integration and unit tests.",
+  "scope": ["src/pm_survival/cost_policy.py", "test/product/test_cost_policy.py"],
+  "expected_output": [
+    "src/pm_survival/cost_policy.py (expected_cost_rate, optimal_time)",
+    "test/product/test_cost_policy.py"
+  ],
+  "acceptance_criteria": [
+    "AC-6: finite t*; raising Cf/Cp moves t* earlier; Cf/Cp -> 1 moves t* later / to horizon",
+    "Works with Weibull R(t) closed form and with tabulated R(t)",
+    "No dependency beyond numpy (or stdlib) unless DEC-010 approves more"
+  ],
+  "validation_commands": [
+    "python -m unittest discover -s test/product -p 'test_*.py'",
+    "python .scripts/repoctl.py verify"
+  ],
+  "authority": "A4_TDD_GUIDE (MATERIALIZE) after OWNER activation",
+  "dependencies": ["TASK-003", "DEC-013"],
+  "budget": { "max_repair_attempts": 3 }
+}

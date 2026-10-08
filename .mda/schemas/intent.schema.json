@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MDA Intent Contract",
+  "type": "object",
+  "required": ["intent_id", "source", "intent_class", "project_kind", "title", "objective", "state", "content_hash"],
+  "properties": {
+    "intent_id": {"type": "string"},
+    "source": {"type": "string"},
+    "intent_class": {"enum": ["PROJECT", "DOMAIN", "FEATURE", "RESEARCH"]},
+    "project_kind": {"type": "string"},
+    "title": {"type": "string", "minLength": 1},
+    "objective": {"type": "string", "minLength": 1},
+    "vision": {"type": "string"},
+    "target": {"type": "string"},
+    "state": {"type": "string"},
+    "content_hash": {"type": "string"},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "deliverables": {"type": "array", "items": {"type": "string"}},
+    "acceptance_criteria": {"type": "array", "items": {"type": "string"}},
+    "non_goals": {"type": "array", "items": {"type": "string"}},
+    "missing_decisions": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

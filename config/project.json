@@ -1,0 +1,10 @@
+{
+  "project_name": "Predictive Maintenance Survival MLOps",
+  "objective": "Establish the governed architecture and first bootstrap specification required to ingest NASA C-MAPSS-style run-to-failure data, represent right-censored trajectories, train and evaluate baseline Weibull/Cox (or justified AFT/RSF alternatives) survival/RUL models, and produce auditable evidence suitable for later task-scoped implementation of a cost-optimized maintenance recommendation surface.",
+  "project_kind": "DATA_SCIENCE",
+  "maturity": "M1_GUARDED",
+  "repository_mode": "PROJECT",
+  "implementation_authority": "TASK_SCOPED",
+  "governance_version": "2.0.0",
+  "origin_intent": "INTENT-446E2407EF97"
+}

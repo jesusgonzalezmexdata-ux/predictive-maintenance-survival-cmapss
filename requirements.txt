@@ -1,0 +1,4 @@
+# DEC-010 approved stack (HG-002 = A, 2026-10-07). Dependency changes are supply-chain events.
+numpy>=2.0,<3
+pandas>=2.2,<3
+lifelines>=0.30,<0.31

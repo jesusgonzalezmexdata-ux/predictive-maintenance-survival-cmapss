@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "default_task": {
+    "max_repair_attempts": 3,
+    "max_wall_minutes": 60,
+    "max_cost_usd": 5.0,
+    "warning_percent": 80
+  },
+  "economic_agency": {
+    "enabled": false,
+    "daily_autonomous_limit_usd": 0,
+    "reason": "P18 disabled below M5_ECONOMIC"
+  }
+}

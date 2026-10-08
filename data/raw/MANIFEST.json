@@ -1,0 +1,111 @@
+{
+  "archive_path": "intake/sources/Proyect_5_Nasa.zip",
+  "archive_sha256": "7109344d8cf63cf07548befe3235e6ae7624cbb0adf302e0f06280882d93758f",
+  "archive_size_bytes": 12943544,
+  "column_names": [
+    "unit_id",
+    "cycle",
+    "op_setting_1",
+    "op_setting_2",
+    "op_setting_3",
+    "sensor_1",
+    "sensor_2",
+    "sensor_3",
+    "sensor_4",
+    "sensor_5",
+    "sensor_6",
+    "sensor_7",
+    "sensor_8",
+    "sensor_9",
+    "sensor_10",
+    "sensor_11",
+    "sensor_12",
+    "sensor_13",
+    "sensor_14",
+    "sensor_15",
+    "sensor_16",
+    "sensor_17",
+    "sensor_18",
+    "sensor_19",
+    "sensor_20",
+    "sensor_21"
+  ],
+  "columns": 26,
+  "dataset": "NASA C-MAPSS Turbofan Engine Degradation Simulation",
+  "decision": "DEC-003",
+  "excluded_from_extraction": [
+    "Damage Propagation Modeling.pdf (binary; stays in archive)"
+  ],
+  "files": {
+    "RUL_FD001.txt": {
+      "rows": 100,
+      "sha256": "a19c8ec94931949d0485bdc35118206e9c81c4547b422efb9cf86f4ceddbceca",
+      "size_bytes": 429
+    },
+    "RUL_FD002.txt": {
+      "rows": 259,
+      "sha256": "c851dd96a6ea6998d3c4a8f834d3c8013aa90e93a6ed950dc826ad0655b2906b",
+      "size_bytes": 1110
+    },
+    "RUL_FD003.txt": {
+      "rows": 100,
+      "sha256": "df1e0566306b174a2de41c67a3e7a51877889598b78643fc3e5685259091b7cb",
+      "size_bytes": 428
+    },
+    "RUL_FD004.txt": {
+      "rows": 248,
+      "sha256": "196b836b85a95ac7fdbbf29c5fdf1657382eafa445644d114ffaaf50dc2975e1",
+      "size_bytes": 1084
+    },
+    "readme.txt": {
+      "rows": 34,
+      "sha256": "4f5270554b775c67e73aff383c5436fd329d6e4cc3d3a116913276fae511269b",
+      "size_bytes": 2442
+    },
+    "test_FD001.txt": {
+      "rows": 13096,
+      "sha256": "3cda7109ce17bafb5443f2ac926cfcf88154b941b8c4cf95eb55d1ddd6f52851",
+      "size_bytes": 2228855
+    },
+    "test_FD002.txt": {
+      "rows": 33991,
+      "sha256": "de7b5bf7e998a985c378488480528b7c02cff1406a46740def362dda8d9b4e02",
+      "size_bytes": 5734587
+    },
+    "test_FD003.txt": {
+      "rows": 16596,
+      "sha256": "299babd63c8d987cef079c4a425429f33b3a34797d803bbe2ad48c29dbd0d790",
+      "size_bytes": 2826651
+    },
+    "test_FD004.txt": {
+      "rows": 41214,
+      "sha256": "1dc675fff0624bac10786927c6715b37d1297657137400d2b1a3138d777a3ba5",
+      "size_bytes": 6957759
+    },
+    "train_FD001.txt": {
+      "rows": 20631,
+      "sha256": "963b5e22825b34d8b21c69e1aeb4af3e647050eb672ee8834ba4b5d91d2de0f8",
+      "size_bytes": 3515356
+    },
+    "train_FD002.txt": {
+      "rows": 53759,
+      "sha256": "dac6c4dbc4e7c1bdeb5747da3d313d05c395bb99801b44a002b26a2ba13d788f",
+      "size_bytes": 9082480
+    },
+    "train_FD003.txt": {
+      "rows": 24720,
+      "sha256": "2abbe9968cc5e8eb091980f51b20f62bb4127336d3482cb52071d53bf23329e2",
+      "size_bytes": 4213862
+    },
+    "train_FD004.txt": {
+      "rows": 61249,
+      "sha256": "27ef6160b6a1dcb2613a88de9c239f763b223f02cdc41dc5cdedc5dc189b6218",
+      "size_bytes": 10350705
+    }
+  },
+  "generated_at": "2026-10-07",
+  "generated_by": "TASK-001",
+  "local_extraction": "data/raw/cmapss/ (gitignored, DEC-004)",
+  "schema_version": "1.0.0",
+  "source_id": "SRC-003"
+}

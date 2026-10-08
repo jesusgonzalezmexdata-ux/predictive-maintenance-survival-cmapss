@@ -1,0 +1,27 @@
+{
+  "schema_version": "2.0.0",
+  "principle": "HUMAN_INTENT -> NORMALIZED_CONTRACT -> ARCHITECTURE -> GOVERNED_WORK",
+  "accepted_sources": [
+    "Any Markdown file passed explicitly to repoctl ingest",
+    "Markdown files placed in intake/",
+    "Markdown files anywhere outside governance roots containing MDA-Intent: true"
+  ],
+  "intent_classes": ["PROJECT", "DOMAIN", "FEATURE", "RESEARCH"],
+  "required_semantics": ["title_or_name", "objective_or_vision"],
+  "recommended_semantics": ["scope", "constraints", "deliverables", "acceptance_criteria", "non_goals"],
+  "states": [
+    "DISCOVERED",
+    "NORMALIZED",
+    "NEEDS_DECISION",
+    "ARCHITECTURE_PROPOSED",
+    "SCAFFOLDED",
+    "READY_FOR_GOVERNED_WORK"
+  ],
+  "safety_invariants": [
+    "An intent file can authorize architecture scaffolding but never unbounded product implementation.",
+    "Missing semantics are surfaced as decisions; they are not silently invented.",
+    "Generated topology is profile-driven and every materialized product scope receives a local contract.",
+    "Canonical governance changes remain owner-gated.",
+    "Generated code is outside intake materialization authority."
+  ]
+}

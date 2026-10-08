@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "adapters": [
+    {
+      "tool": "generic",
+      "status": "SUPPORTED",
+      "artifacts": [
+        "AGENTS.md"
+      ]
+    },
+    {
+      "tool": "openai-codex",
+      "status": "SUPPORTED",
+      "artifacts": [
+        "AGENTS.md"
+      ]
+    },
+    {
+      "tool": "claude-code",
+      "status": "SUPPORTED",
+      "artifacts": [
+        "CLAUDE.md"
+      ]
+    },
+    {
+      "tool": "cursor",
+      "status": "SUPPORTED",
+      "artifacts": [
+        "AGENTS.md",
+        ".cursor/rules/00-governance.mdc"
+      ]
+    },
+    {
+      "tool": "github-copilot",
+      "status": "SUPPORTED",
+      "artifacts": [
+        "AGENTS.md",
+        ".github/copilot-instructions.md"
+      ]
+    },
+    {
+      "tool": "gemini-cli",
+      "status": "SUPPORTED",
+      "artifacts": [
+        "GEMINI.md",
+        ".gemini/settings.json"
+      ]
+    },
+    {
+      "tool": "windsurf",
+      "status": "SUPPORTED",
+      "artifacts": [
+        ".windsurf/rules/00-governance.md"
+      ]
+    },
+    {
+      "tool": "aider",
+      "status": "SUPPORTED",
+      "artifacts": [
+        "CONVENTIONS.md",
+        ".aider.conf.yml"
+      ]
+    },
+    {
+      "tool": "unknown-future-agent",
+      "status": "ADAPTER_REQUIRED",
+      "fallback": "external wrapper + AGENTS.md + repoctl enforcement"
+    }
+  ]
+}
