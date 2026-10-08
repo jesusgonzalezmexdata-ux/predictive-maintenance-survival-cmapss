@@ -1,7 +1,7 @@
 {
   "scope": "models",
   "scope_class": "PRODUCT",
-  "state": "DECLARED_UNMATERIALIZED",
+  "state": "IMPLEMENTATION_ACTIVE",
   "objective": "Model artifacts, manifests and model-card metadata; large binaries follow external artifact policy.",
   "write_policy": "APPROVED_TASK",
   "intent_id": "INTENT-446E2407EF97",

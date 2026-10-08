@@ -1,0 +1,32 @@
+{
+  "task_id": "TASK-008",
+  "session_id": "SESSION-2026-10-08-DOD",
+  "actor": "A4_TDD_GUIDE",
+  "status": "PARTIAL",
+  "ending_state": "DoD locally closed except GitHub remote + live URL (OWNER)",
+  "intent": "INTENT-446E2407EF97",
+  "artifacts_created": [
+    "docs/specs/SPEC-002-dod-closure.md",
+    "docs/taxonomy.md",
+    "docs/KERNEL_README.md",
+    "docs/reviews/DOD-STATUS.md",
+    "src/pm_survival/explain.py",
+    "src/pm_survival/decision.py",
+    "app/streamlit_app.py",
+    "Dockerfile",
+    "README.md (portfolio)",
+    "test/product/test_explain.py"
+  ],
+  "verification": [
+    "52 product tests OK",
+    "repoctl verify PASS",
+    "security-scan PASS"
+  ],
+  "blockers": [
+    "No git remote — owner must create GitHub repo and push",
+    "No live HTTP URL — owner must deploy Streamlit Cloud / HF Spaces"
+  ],
+  "next_governed_step": "OWNER: commit remaining changes, push to GitHub, deploy app, paste URL into README",
+  "required_authority": "OWNER",
+  "true_human_gate": "GitHub publish + cloud URL"
+}

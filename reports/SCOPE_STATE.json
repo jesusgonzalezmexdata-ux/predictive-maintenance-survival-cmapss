@@ -1,7 +1,7 @@
 {
   "scope": "reports",
   "scope_class": "PRODUCT",
-  "state": "DECLARED_UNMATERIALIZED",
+  "state": "IMPLEMENTATION_ACTIVE",
   "objective": "Generated analytical reports and evidence.",
   "write_policy": "APPROVED_TASK",
   "intent_id": "INTENT-446E2407EF97",

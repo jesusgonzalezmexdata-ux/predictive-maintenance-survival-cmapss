@@ -1,4 +1,6 @@
-# DEC-010 approved stack (HG-002 = A, 2026-10-07). Dependency changes are supply-chain events.
+# DEC-010 + SPEC-002 DoD runtime (OWNER continuation 2026-10-08). Supply-chain event recorded.
 numpy>=2.0,<3
 pandas>=2.2,<3
 lifelines>=0.30,<0.31
+streamlit>=1.36,<2
+plotly>=5.22,<6
