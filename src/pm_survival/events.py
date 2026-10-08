@@ -13,8 +13,9 @@ Covariates
 ----------
 The first baseline uses *per-unit summary covariates* computed from an
 early-life window so that they are available at prediction time for a censored
-unit too: ``<sensor>_early`` (mean over the first ``early_window`` cycles) and
-``<sensor>_slope`` (least-squares slope over the observed cycles). Constant
+unit too, and so that later cycles cannot leak into the feature (HG-003 = B):
+``<sensor>_early`` (mean over the first ``early_window`` cycles) and
+``<sensor>_slope`` (least-squares slope over that same window only). Constant
 columns are dropped. A counting-process long format for time-varying Cox is
 provided by :func:`build_long_format`.
 """
@@ -58,8 +59,9 @@ def build_survival_table(
         early = g[g["cycle"] <= early_window]
         row = {"unit_id": int(unit), "duration": duration, "event": 0 if censored else 1}
         for s in signals:
-            row[f"{s}{EARLY_SUFFIX}"] = float(early[s].mean())
-            row[f"{s}{SLOPE_SUFFIX}"] = _slope(g[s].to_numpy(dtype=float))
+            y_early = early[s].to_numpy(dtype=float)
+            row[f"{s}{EARLY_SUFFIX}"] = float(y_early.mean()) if len(y_early) else float("nan")
+            row[f"{s}{SLOPE_SUFFIX}"] = _slope(y_early)
         rows.append(row)
     tbl = pd.DataFrame(rows)
     # Drop constant covariates (e.g. op_setting_3 == 100 in FD001); they carry no hazard information.

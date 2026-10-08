@@ -1,12 +1,12 @@
 {
   "censored_scoring": {
-    "concordance_vs_rul_truth": 0.815516,
+    "concordance_vs_rul_truth": 0.459581,
     "mean_unconditional_failure_probability_by_cycle": {
-      "100": 0.000978,
-      "150": 0.007127,
-      "200": 0.110286,
-      "250": 0.266848,
-      "50": 0.000978
+      "100": 0.017363,
+      "150": 0.14742,
+      "200": 0.505895,
+      "250": 0.858374,
+      "50": 0.000384
     },
     "n_units": 100,
     "note": "RUL truth used only to evaluate ranking; never a feature. Probabilities are from cycle 0 (unconditional), not conditioned on the observed censoring cycle."
@@ -24,41 +24,41 @@
   },
   "cox": {
     "coefficients": {
-      "sensor_11_slope": -0.39722,
-      "sensor_15_slope": 0.068491,
-      "sensor_17_slope": 0.083286,
-      "sensor_20_slope": -0.259854,
-      "sensor_21_slope": -0.071345,
-      "sensor_2_slope": 0.15133,
-      "sensor_3_slope": 0.346314,
-      "sensor_4_slope": 0.726064
+      "op_setting_2_slope": -0.302635,
+      "sensor_15_early": -0.472867,
+      "sensor_17_early": 0.194801,
+      "sensor_2_early": 0.315699,
+      "sensor_3_early": 0.246753,
+      "sensor_4_early": -0.116756,
+      "sensor_6_early": 0.166197,
+      "sensor_7_slope": 0.288986
     },
     "covariates": [
-      "sensor_4_slope",
-      "sensor_3_slope",
-      "sensor_21_slope",
-      "sensor_20_slope",
-      "sensor_15_slope",
-      "sensor_17_slope",
-      "sensor_2_slope",
-      "sensor_11_slope"
+      "sensor_6_early",
+      "sensor_17_early",
+      "sensor_4_early",
+      "op_setting_2_slope",
+      "sensor_3_early",
+      "sensor_7_slope",
+      "sensor_2_early",
+      "sensor_15_early"
     ],
     "penalizer": 0.05,
-    "train_concordance": 0.76527
+    "train_concordance": 0.694276
   },
   "ph_test": {
     "alpha": 0.05,
-    "holds": true,
+    "holds": false,
     "method": "schoenfeld_rank",
     "p_values": {
-      "sensor_11_slope": 0.88352,
-      "sensor_15_slope": 0.577153,
-      "sensor_17_slope": 0.050603,
-      "sensor_20_slope": 0.815941,
-      "sensor_21_slope": 0.733082,
-      "sensor_2_slope": 0.314562,
-      "sensor_3_slope": 0.211811,
-      "sensor_4_slope": 0.588178
+      "op_setting_2_slope": 0.519194,
+      "sensor_15_early": 0.926215,
+      "sensor_17_early": 0.959831,
+      "sensor_2_early": 0.849996,
+      "sensor_3_early": 0.313261,
+      "sensor_4_early": 0.751629,
+      "sensor_6_early": 0.039731,
+      "sensor_7_slope": 0.446899
     }
   },
   "pm_survival_version": "0.1.0",
@@ -85,21 +85,22 @@
       "max_cycle": 362,
       "n_rows": 20631,
       "n_units": 100
-    }
+    },
+    "slope_window": 20
   },
   "selected_model": {
     "coefficients": {
-      "sensor_11_slope": -0.39722,
-      "sensor_15_slope": 0.068491,
-      "sensor_17_slope": 0.083286,
-      "sensor_20_slope": -0.259854,
-      "sensor_21_slope": -0.071345,
-      "sensor_2_slope": 0.15133,
-      "sensor_3_slope": 0.346314,
-      "sensor_4_slope": 0.726064
+      "op_setting_2_slope": 0.06684,
+      "sensor_15_early": 0.189488,
+      "sensor_17_early": -0.04371,
+      "sensor_2_early": -0.117534,
+      "sensor_3_early": -0.121604,
+      "sensor_4_early": 0.064311,
+      "sensor_6_early": -0.033127,
+      "sensor_7_slope": -0.06395
     },
-    "kind": "cox",
-    "reason": "PH assumption holds (all Schoenfeld p > 0.05); Cox PH retained."
+    "kind": "weibull_aft",
+    "reason": "PH assumption violated for ['sensor_6_early'] (p <= 0.05); fell back to Weibull AFT."
   },
   "split": {
     "n_train_units": 80,
@@ -110,13 +111,13 @@
   "subset": "FD001",
   "validation": {
     "brier": {
-      "100": 8.1e-05,
-      "150": 0.050318,
-      "200": 0.156157,
-      "250": 0.098838,
-      "50": 8.1e-05
+      "100": 0.000687,
+      "150": 0.058134,
+      "200": 0.217221,
+      "250": 0.199879,
+      "50": 0.0
     },
-    "concordance": 0.777778,
+    "concordance": 0.666667,
     "horizons": [
       50,
       100,
@@ -124,7 +125,7 @@
       200,
       250
     ],
-    "ibs": 0.064004
+    "ibs": 0.093996
   },
   "weibull": {
     "n": 80,

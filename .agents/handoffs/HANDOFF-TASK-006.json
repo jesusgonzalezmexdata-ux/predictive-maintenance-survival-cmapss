@@ -1,0 +1,86 @@
+{
+  "task_id": "TASK-006",
+  "session_id": "SESSION-2026-10-07-GEC-004",
+  "actor": "A1_ORCHESTRATOR",
+  "status": "PARTIAL",
+  "starting_state": "HG-002 open; SPEC-001 proposed; TASK-001..006 proposed (or already implemented on disk)",
+  "ending_state": "G IMPLEMENTATION ACTIVE; SPEC-001 tasks IMPLEMENTED; independent review PARTIAL; TRUE_HUMAN_GATE HG-003",
+  "intent": "INTENT-446E2407EF97",
+  "intent_status": "SCAFFOLDED / origin of DATA_SCIENCE project",
+  "scope": [
+    "intake/OBJECTIVE.md",
+    "docs/specs/SPEC-001-cmapss-survival-baseline.md",
+    "src/pm_survival/**",
+    "test/product/**",
+    "data/raw/MANIFEST.json",
+    "reports/eval_FD001.json",
+    "reports/eval_FD001.md",
+    "models/MODEL_CARD_FD001.md",
+    "docs/reviews/REVIEW-TASK-006.md",
+    "docs/proposals/DECISION-REQUIRED-PROMOTION-OR-NEXT-SPEC.md"
+  ],
+  "scopes_touched": [
+    "src",
+    "test/product",
+    "data/raw",
+    "data/processed",
+    "models",
+    "reports",
+    ".mda/source/folders.mda.json",
+    "docs/tasks",
+    "docs/proposals",
+    "docs/reviews",
+    ".agents/handoffs"
+  ],
+  "artifacts_created": [
+    "docs/reviews/REVIEW-TASK-006.md",
+    "docs/proposals/DECISION-REQUIRED-PROMOTION-OR-NEXT-SPEC.md",
+    ".agents/handoffs/HANDOFF-TASK-006.json"
+  ],
+  "artifacts_modified": [
+    "docs/proposals/DECISION-REQUIRED-APPROVE-SPEC-001.md",
+    "docs/tasks/TASK-006-e2e-run-evidence-review.json",
+    ".mda/source/folders.mda.json"
+  ],
+  "sources_used": [
+    "intake/OBJECTIVE.md",
+    "docs/specs/SPEC-001-cmapss-survival-baseline.md",
+    "data/raw/MANIFEST.json",
+    "reports/eval_FD001.json"
+  ],
+  "decisions_applied": [
+    "HG-002 = A",
+    "DEC-003 = SRC-003",
+    "DEC-004 = external path + gitignore",
+    "DEC-008 = git init + hooks (already on disk)",
+    "DEC-010 = numpy/pandas/lifelines",
+    "DEC-011 C-index primary + IBS",
+    "DEC-012 horizons [50,100,150,200,250]",
+    "DEC-013 Cf/Cp = 10"
+  ],
+  "decisions_pending": [
+    "HG-003 promotion vs next spec vs covariate fix",
+    "DEC-009 kernel test_intent.py vs PROJECT mode",
+    "DEC-007 discover() of intake/sources"
+  ],
+  "verification": [
+    "python .scripts/repoctl.py verify PASS",
+    "python .scripts/repoctl.py security-scan PASS findings=[]",
+    "python .scripts/repoctl.py audit-verify PASS head=86b2d8388ef1f8406b4e891dd9726689e53210d17c52a491ab851112fa1508b1",
+    ".venv/Scripts/python -m unittest discover -s test/product -p test_*.py → 48 OK",
+    "git ls-files size scan: no tracked file > 1MB under data/models/reports",
+    "git check-ignore: data/raw/cmapss and intake/sources/*.zip"
+  ],
+  "validation_result": "PRODUCT_TESTS_PASS; KERNEL_VERIFY_PASS; INDEPENDENT_REVIEW_PARTIAL; NOT_PROMOTED",
+  "audit_status": "PASS; compile PASS; event session_hg002_a_task006_review_partial; head=9a773f6f376d81883f482ea475a8acc8a733bbdc8d2c2aa67ba1f772dbf6ae23",
+  "blockers": [
+    "Promotion reserved to OWNER",
+    "Same-session reviewer cannot fully satisfy executor != verifier"
+  ],
+  "next_governed_step": "OWNER answers HG-003 = A|B|C",
+  "required_authority": "OWNER",
+  "next_authority": "OWNER",
+  "implementation_allowed": false,
+  "true_human_gate": "HG-003-PROMOTION-OR-NEXT-SPEC",
+  "safe_autonomous_work_remaining": false
+}

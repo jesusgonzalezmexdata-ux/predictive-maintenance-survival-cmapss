@@ -30,12 +30,12 @@ OPEN_DECISIONS = [
 ]
 
 LIMITATIONS = [
-    "Slope covariates are computed over the full training trajectory; because total drift at failure is bounded, slope is partially confounded with duration (≈ drift / cycles). For censored units the slope over the observed window is a legitimate degradation-rate signal, but the validation C-index on run-to-failure units is optimistic relative to true prognostic use.",
+    "Slope covariates use only the first early_window cycles (HG-003 = B / TASK-007). Cycles after that window, including the failure time, do not enter the feature. Early-life drift on FD001 is often weak, so concordance is expected to be lower than a full-trajectory slope; that lower number is the prognostic score.",
     "Per-unit summary covariates ignore within-trajectory dynamics; a time-varying (counting-process) Cox model is provided in events.build_long_format but not evaluated here.",
     "FD001 only (single operating condition, single fault mode). Generalisation to FD002–FD004 is out of scope (SPEC-001 §2).",
     "Cost parameters C_p, C_f are illustrative (DEC-013); t* is baseline evidence, not a production recommendation.",
     "Weibull parametric baseline is unconditional (no covariates); it informs the failure regime and the cost policy, not unit-level ranking.",
-    "Censored-unit failure probabilities are reported from cycle 0; a decision surface must condition on the already-observed cycle (S(t+c)/S(c)). Ranking (concordance vs RUL truth) is unaffected.",
+    "Censored-unit failure probabilities are reported from cycle 0; a decision surface must condition on the already-observed cycle (S(t+c)/S(c)). Concordance versus RUL truth is a separate evaluation and is reported in censored_scoring.",
 ]
 
 
@@ -117,6 +117,7 @@ def run_pipeline(
             "schema_train": schema_train,
             "schema_test": schema_test,
             "early_window": early_window,
+            "slope_window": early_window,
         },
         "split": {"val_fraction": val_fraction, "seed": seed, "n_train_units": int(len(tr)), "n_val_units": int(len(va))},
         "weibull": {"shape": weib.shape, "scale": weib.scale, "regime": weib.regime, "n": weib.n, "n_events": weib.n_events},

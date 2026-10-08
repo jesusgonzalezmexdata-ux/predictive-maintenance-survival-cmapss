@@ -114,7 +114,7 @@ def render_model_card(p: dict, open_decisions: list[str], limitations: list[str]
         "",
         "- Source: DEC-003 archive declared in `data/raw/MANIFEST.json`; local extraction only (DEC-004).",
         "- Event: end of recorded run-to-failure trajectory (train). Test trajectories are right-censored; RUL truth is evaluation-only.",
-        "- Covariates: early-life means (first 20 cycles) and per-unit slopes of operational settings / sensors; constant columns dropped.",
+        f"- Covariates: early-life means and slopes over the first {p.get('provenance', {}).get('slope_window', p.get('provenance', {}).get('early_window', 20))} cycles only; later cycles are excluded (TASK-007). Constant columns dropped.",
         "- Split: grouped by `unit_id` (no unit in both partitions).",
         "",
         "## Models",

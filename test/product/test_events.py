@@ -55,6 +55,27 @@ class SurvivalTableTests(unittest.TestCase):
         # and the slope covariate exists
         self.assertIn("sensor_2_slope", tbl.columns)
 
+    def test_slope_excludes_cycles_after_early_window(self):
+        """HG-003 = B: a late jump must not change the slope feature (no future leakage)."""
+        import pandas as pd
+
+        rows = []
+        for unit, early_rate in ((1, 1.0), (2, 3.0)):
+            for c in range(1, 31):
+                # mild unit-specific drift in the decision window, then a shared late jump
+                sensor = early_rate * float(c) if c <= 10 else 1000.0 + float(c)
+                rows.append({"unit_id": unit, "cycle": c, "sensor_2": sensor})
+        df = pd.DataFrame(rows)
+        tbl = E.build_survival_table(df, censored=False, early_window=10, signals=["sensor_2"])
+        u1 = df[df.unit_id == 1]
+        early = u1[u1.cycle <= 10]["sensor_2"].to_numpy(dtype=float)
+        full = u1["sensor_2"].to_numpy(dtype=float)
+        early_slope = E._slope(early)
+        full_slope = E._slope(full)
+        self.assertNotAlmostEqual(early_slope, full_slope, places=6)
+        got = float(tbl.set_index("unit_id").loc[1, "sensor_2_slope"])
+        self.assertAlmostEqual(got, early_slope, places=9)
+
     def test_constant_sensors_are_dropped_from_features(self):
         train, _, _ = _load()
         tbl = E.build_survival_table(train, censored=False)
