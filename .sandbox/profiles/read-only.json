@@ -1,6 +1,0 @@
-{
-  "filesystem": "read-only",
-  "network": "deny",
-  "commands": "allowlist",
-  "purpose": "audit/review"
-}

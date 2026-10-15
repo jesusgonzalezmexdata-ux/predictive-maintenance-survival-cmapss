@@ -15,7 +15,7 @@ SPEC-001/002 entregan un baseline correcto pero sin impacto demostrable:
 
 ## Entregables (MUST)
 
-1. **TASK-009 — saneamiento:** app ejecutable con prueba de humo; CI de producto (ruff + pytest); pruebas de kernel GREENFIELD omitidas en proyecto BROWNFIELD con motivo explícito; LICENSE MIT.
+1. **TASK-009 — saneamiento:** app ejecutable con prueba de humo; CI de producto (ruff + pytest); LICENSE MIT.
 2. **TASK-010 — núcleo científico:**
    - Modelo *landmark*: en cada inspección `c`, rasgos con ciclos ≤ c (media y pendiente en ventana de 20 ciclos + edad), objetivo vida residual `T − c`; Weibull AFT ponderado 1/n por motor.
    - Validación cruzada agrupada repetida (5 × 5) sobre los 100 motores run-to-failure; Brier fuera de pliegue frente a tasa base; calibración por deciles.

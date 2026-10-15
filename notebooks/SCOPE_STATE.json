@@ -1,9 +1,0 @@
-{
-  "scope": "notebooks",
-  "scope_class": "PRODUCT",
-  "state": "DECLARED_UNMATERIALIZED",
-  "objective": "Exploratory notebooks; conclusions must be promoted into specs/code before governed release.",
-  "write_policy": "APPROVED_TASK",
-  "intent_id": "INTENT-446E2407EF97",
-  "intent_source": "intake/OBJECTIVE.md"
-}

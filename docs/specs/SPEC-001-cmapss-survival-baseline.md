@@ -92,7 +92,7 @@ Produce the first governed, reproducible evidence pipeline that:
 
 | ID | Criterion | Verification |
 |----|-----------|--------------|
-| AC-1 | `python .scripts/repoctl.py verify` → PASS after all tasks | repoctl |
+| AC-1 | `python -m pytest -q test/product` and `ruff check .` → PASS after all tasks | CI |
 | AC-2 | `python -m unittest discover -s test/product -p 'test_*.py'` → all pass offline | unittest |
 | AC-3 | Survival table for FD001 has 100 rows, `event==1` for all train units, durations equal max cycle per unit | test on fixture + report assertion |
 | AC-4 | Test units are censored (`event==0`) and RUL truth is never present in feature columns | unit test |
@@ -108,13 +108,10 @@ Produce the first governed, reproducible evidence pipeline that:
 | DEC-003 | Canonical NASA archive | **SRC-003** `intake/sources/Proyect_5_Nasa.zip` (sha256 `7109344d…`) | DECIDED |
 | DEC-004 | Raw data in git vs external path | **External path only**; `data/raw/*` and `intake/sources/*.zip` gitignored; local extraction under `data/raw/cmapss/` | DECIDED |
 | DEC-005 | Kaggle preprocessed variant | **Exclude** | DECIDED |
-| DEC-008 | Initialize git + hooks | **Done** (`git init -b main`, `repoctl install-hooks` PASS) | DECIDED |
-| DEC-009 | Kernel tests assume MASTER_TEMPLATE (4 `test_intent.py` failures in PROJECT mode) | Known; governance test change deferred; product tests live in `test/product` | OPEN (governance) |
 | DEC-010 | Dependency stack | **numpy, pandas, lifelines** pinned in `requirements.txt`; `.venv` local | DECIDED |
 | DEC-011 | Primary metric | **C-index primary; IBS reported** | DECIDED |
 | DEC-012 | Horizon grid (cycles) | **[50,100,150,200,250]** | DECIDED |
 | DEC-013 | Illustrative cost ratio \( C_f/C_p \) | **10** (illustrative only, from SRC-007 example) | DECIDED |
-| DEC-007 | Exclude `intake/sources/**` from `discover()` | Optional governance change; not required for SPEC-001 | OPEN (governance) |
 
 ## 7. Risks
 

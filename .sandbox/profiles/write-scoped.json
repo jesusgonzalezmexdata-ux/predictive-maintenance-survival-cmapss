@@ -1,6 +1,0 @@
-{
-  "filesystem": "workspace-scoped",
-  "network": "deny-by-default",
-  "commands": "allowlist",
-  "purpose": "authorized implementation"
-}

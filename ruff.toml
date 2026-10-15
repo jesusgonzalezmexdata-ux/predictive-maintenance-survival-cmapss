@@ -1,4 +1,4 @@
-# Lint scope: product code only (the governance kernel has its own checks in repoctl).
+# Lint scope: product code.
 line-length = 120
 target-version = "py312"
 include = ["src/**/*.py", "app/**/*.py", "test/product/**/*.py", "tools/**/*.py"]

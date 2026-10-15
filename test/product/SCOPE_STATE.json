@@ -1,9 +1,0 @@
-{
-  "scope": "test/product",
-  "scope_class": "PRODUCT",
-  "state": "IMPLEMENTATION_ACTIVE",
-  "objective": "Product-level deterministic tests for data and model logic.",
-  "write_policy": "APPROVED_TASK",
-  "intent_id": "INTENT-446E2407EF97",
-  "intent_source": "intake/OBJECTIVE.md"
-}

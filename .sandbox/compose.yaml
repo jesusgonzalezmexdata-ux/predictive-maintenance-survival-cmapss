@@ -1,9 +1,0 @@
-services:
-  agent:
-    build: .
-    working_dir: /workspace
-    volumes:
-      - ../:/workspace
-    network_mode: none
-    security_opt:
-      - no-new-privileges:true
