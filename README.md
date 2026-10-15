@@ -73,7 +73,7 @@ python -m pm_survival extract --archive path/to/CMAPSSData.zip --out data/raw/cm
 python -m pm_survival run   --raw-dir data/raw/cmapss   # SPEC-001 baseline
 python -m pm_survival study --raw-dir data/raw/cmapss   # SPEC-003, ~2 min
 python tools/make_figures.py
-pytest test/product                                      # 67 tests, no NASA data needed
+pytest test/product                                      # 71 tests, no NASA data needed
 ```
 
 **Docker:** `docker build -t pm-survival . && docker run -p 8501:8501 pm-survival`, then open `http://localhost:8501`.
@@ -92,6 +92,10 @@ pytest test/product                                      # 67 tests, no NASA dat
 | Product tests | [`test/product/`](test/product) |
 | Specifications | [`SPEC-001`](docs/specs/SPEC-001-cmapss-survival-baseline.md), [`SPEC-002`](docs/specs/SPEC-002-dod-closure.md), [`SPEC-003`](docs/specs/SPEC-003-condition-based-impact.md) |
 | L2 taxonomy ↔ sensors | [`docs/taxonomy.md`](docs/taxonomy.md) |
+
+## Monitoring
+
+[`monitoring.py`](src/pm_survival/monitoring.py) compares a new batch of engine cycles with a reference batch: PSI per informative sensor (≥ 0.25 = alert), sensors that froze, and readings outside the reference range (> 5 % = alert). Compare engines in the same age range: young test engines drift against whole training trajectories without anything being wrong. Tests cover a shifted sensor, a frozen sensor and an unchanged batch.
 
 ## Reference baseline (SPEC-001)
 
