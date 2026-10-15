@@ -10,14 +10,8 @@ node_modules/
 Thumbs.db
 .aider.chat.history.md
 .aider.input.history
-.logs/runs/*
-!.logs/runs/README.md
-.logs/reports/*.json
-.logs/incidents/*.json
 # DEC-004: raw datasets stay outside git (external path / local extraction only)
 data/raw/*
-!data/raw/AGENTS.md
-!data/raw/SCOPE_STATE.json
 !data/raw/MANIFEST.json
 !data/raw/README.md
 data/processed/*.parquet

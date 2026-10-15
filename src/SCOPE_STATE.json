@@ -1,9 +1,0 @@
-{
-  "scope": "src",
-  "scope_class": "PRODUCT",
-  "state": "IMPLEMENTATION_ACTIVE",
-  "objective": "Reusable production-grade data science source.",
-  "write_policy": "APPROVED_TASK",
-  "intent_id": "INTENT-446E2407EF97",
-  "intent_source": "intake/OBJECTIVE.md"
-}

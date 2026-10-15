@@ -14,7 +14,7 @@ COPY app ./app
 COPY docs ./docs
 COPY models ./models
 COPY reports ./reports
-COPY data/raw/MANIFEST.json data/raw/README.md data/raw/AGENTS.md data/raw/SCOPE_STATE.json ./data/raw/
+COPY data/raw/MANIFEST.json data/raw/README.md ./data/raw/
 
 ENV PYTHONPATH=/app/src
 EXPOSE 8501

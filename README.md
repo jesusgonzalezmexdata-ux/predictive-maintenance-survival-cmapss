@@ -93,7 +93,6 @@ pytest test/product                                      # 66 pruebas, sin datos
 | Especificaciones | [`SPEC-001`](docs/specs/SPEC-001-cmapss-survival-baseline.md), [`SPEC-002`](docs/specs/SPEC-002-dod-closure.md), [`SPEC-003`](docs/specs/SPEC-003-condition-based-impact.md) |
 | Taxonomía L2 ↔ sensores | [`docs/taxonomy.md`](docs/taxonomy.md) |
 
-El resto del repositorio (`.agents/`, `.mda/`, `.scripts/`, `config/`, `docs/` de gobernanza) es el kernel de gobernanza con el que se construyó el proyecto: cada cambio pasa por una especificación, una tarea y una verificación automática (`python .scripts/repoctl.py verify`). Ver [`docs/KERNEL_README.md`](docs/KERNEL_README.md).
 
 ## Baseline de referencia (SPEC-001)
 

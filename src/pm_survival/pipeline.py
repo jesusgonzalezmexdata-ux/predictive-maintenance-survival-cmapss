@@ -24,10 +24,7 @@ from . import models as M
 from . import report as R
 from . import split as S
 
-OPEN_DECISIONS = [
-    "DEC-009 — kernel tests (test/test_intent.py) assume MASTER_TEMPLATE state; 4 cases fail in PROJECT mode; governance test change deferred",
-    "DEC-007 — whether intake/sources/** should be excluded from repoctl discover(); optional governance change",
-]
+OPEN_DECISIONS: list[str] = []
 
 LIMITATIONS = [
     "Slope covariates use only the first early_window cycles (HG-003 = B / TASK-007). Cycles after that window, including the failure time, do not enter the feature. Early-life drift on FD001 is often weak, so concordance is expected to be lower than a full-trajectory slope; that lower number is the prognostic score.",

@@ -90,12 +90,16 @@ class ReportTests(unittest.TestCase):
             self.assertIn(needle, md)
 
     def test_model_card_lists_open_decisions_and_limitations(self):
-        decisions = ["DEC-009 kernel tests assume MASTER_TEMPLATE", "DEC-007 exclude intake/sources from discover()"]
+        decisions = ["Example decision: validate on FD002", "Example decision: confirm the cost ratio"]
         md = R.render_model_card(self._payload(), open_decisions=decisions, limitations=["slope covariates confounded with duration"])
         for d in decisions:
             self.assertIn(d, md)  # AC-8 verbatim
         self.assertIn("slope covariates confounded", md)
         self.assertIn("not a production recommendation", md.lower())
+
+    def test_model_card_without_open_decisions_says_none(self):
+        md = R.render_model_card(self._payload(), open_decisions=[], limitations=["x"])
+        self.assertIn("- None.", md)
 
 
 if __name__ == "__main__":

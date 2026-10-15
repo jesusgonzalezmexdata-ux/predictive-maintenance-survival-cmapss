@@ -35,8 +35,7 @@ Baseline time-to-event evidence on NASA C-MAPSS FD001 to support later task-scop
 
 ## Open decisions (verbatim from SPEC-001 §6)
 
-- DEC-009 — kernel tests (test/test_intent.py) assume MASTER_TEMPLATE state; 4 cases fail in PROJECT mode; governance test change deferred
-- DEC-007 — whether intake/sources/** should be excluded from repoctl discover(); optional governance change
+- None.
 
 ## Reproduction
 
