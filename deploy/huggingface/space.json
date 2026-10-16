@@ -6,15 +6,16 @@
   "entrypoint": "app/streamlit_app.py",
   "requirements": [
     "plotly",
-    "lifelines"
+    "lifelines",
+    "openpyxl"
   ],
   "include": [
     "app/streamlit_app.py",
     "src/pm_survival",
     "reports/demo"
   ],
-  "short_description": "Which engines to service now (NASA C-MAPSS)",
-  "summary": "Choose the failure/preventive cost ratio and see which engines to service this week; condition-based maintenance is 40 % cheaper than age replacement.",
+  "short_description": "Which units to service this week; try your work orders",
+  "summary": "NASA C-MAPSS engines, or upload your own work orders: the weekly intervention list is computed in your browser and your data never leave it.",
   "repo": "predictive-maintenance-survival-cmapss",
   "license": "mit"
 }

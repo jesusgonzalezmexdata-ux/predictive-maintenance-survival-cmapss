@@ -41,6 +41,14 @@ POLICY_NAMES = {
 
 st.set_page_config(page_title="Mantenimiento por condición — C-MAPSS", layout="wide")
 
+mode = st.segmented_control("Modo", ["Flota de ejemplo (NASA)", "Tu flota"], default="Flota de ejemplo (NASA)",
+                            required=True, label_visibility="collapsed")
+if mode == "Tu flota":
+    from pm_survival.ui_flota import render
+
+    render()
+    st.stop()
+
 
 @st.cache_data
 def load_demo() -> dict:
