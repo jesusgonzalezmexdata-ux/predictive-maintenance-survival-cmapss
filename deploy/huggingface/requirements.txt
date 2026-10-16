@@ -1,0 +1,5 @@
+numpy>=2.0,<3
+pandas>=2.2,<3
+lifelines>=0.30,<0.31
+streamlit>=1.36,<2
+plotly>=5.22,<6

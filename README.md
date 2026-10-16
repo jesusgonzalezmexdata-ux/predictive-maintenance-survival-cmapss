@@ -2,6 +2,8 @@
 
 *English · [Español](README.es.md)*
 
+**[Live demo](https://huggingface.co/spaces/JesusRLGonzalez/predictive-maintenance-survival-cmapss)** | **[Project page](https://jesusgonzalezmexdata-ux.github.io/predictive-maintenance-survival-cmapss/)**
+
 [![product-ci](https://github.com/jesusgonzalezmexdata-ux/predictive-maintenance-survival-cmapss/actions/workflows/product-ci.yml/badge.svg)](https://github.com/jesusgonzalezmexdata-ux/predictive-maintenance-survival-cmapss/actions/workflows/product-ci.yml)
 ![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
