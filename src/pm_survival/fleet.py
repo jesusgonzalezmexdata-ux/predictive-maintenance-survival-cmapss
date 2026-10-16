@@ -152,7 +152,8 @@ def policy_table(models, life, data, settings: Settings) -> pd.DataFrame:
             "ahorro_anual": (c_cur - c_opt) * per_year * len(units),
             "ahorro_pct": 1 - c_opt / c_cur if c_cur > 0 else 0.0,
         })
-    return pd.DataFrame(rows)
+    num = ["intervalo_actual", "t_optimo", "confiabilidad_t_optimo", "carga_semanal"]
+    return pd.DataFrame(rows).astype({c: float for c in num}) if rows else pd.DataFrame(rows)
 
 
 def recommendation(row) -> str:
