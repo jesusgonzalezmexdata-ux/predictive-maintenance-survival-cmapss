@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software or its evidence, please cite it as below."
+title: "Condition-based maintenance with survival analysis on NASA C-MAPSS"
+type: software
+authors:
+  - family-names: "González"
+    given-names: "Jesús R. L."
+license: MIT
+version: "1.1.0"
+date-released: "2026-10-16"
+repository-code: "https://github.com/jesusgonzalezmexdata-ux/predictive-maintenance-survival-cmapss"
+url: "https://jesusgonzalezmexdata-ux.github.io/predictive-maintenance-survival-cmapss/"
+keywords:
+  - survival analysis
+  - predictive maintenance
+  - reliability
+  - decision analysis
