@@ -2,6 +2,14 @@
 
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2026-10-16
+
+### Added
+- MVP for real fleets: "Tu flota" mode in the app. Upload work orders (equipment, date, corrective/preventive, optional hour meter and family) as an Excel template; row-level validation with Spanish messages; processing in the browser on the live demo.
+- Work orders → censored lives → Weibull per family (`fleet.py`); age policy only when wear is demonstrated (β 95 % CI above 1); optimal interval, annual saving and weekly workload against the current interval.
+- Weekly intervention list capped by workshop capacity, and a retrospective check against random selection.
+- One-page report with ISO 9001 / IATF 16949 / ISO 14224 / ISO 55001 references (`fleet_report.py`); pilot protocol (`docs/MVP_PILOTO.md`); ten tests.
+
 ## [1.1.0] - 2026-10-16
 
 ### Added

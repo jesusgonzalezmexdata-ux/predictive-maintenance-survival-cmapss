@@ -52,6 +52,18 @@ Signals from the first 20 cycles add nothing over age; recent condition does. Te
 4. **It measures the decision, not only the model.** A *renewal-reward* backtest of four policies, with the intervention threshold tuned by inner CV on training engines and an oracle as the ceiling.
 5. **It says what does not work.** The model overestimates risk when it predicts between ~5 % and ~20 % (conservative for the decision). With a Holm correction, the proportional-hazards assumption of SPEC-001 does hold; both readings are reported.
 
+## Use it with your work orders (MVP)
+
+The **"Tu flota"** mode of the app turns a maintenance export (SAP PM, Maximo or Excel) into a weekly intervention list. No sensors are needed: only equipment, date and order type, plus the hour meter and equipment family if available.
+
+1. **Work orders → lives.** Each life runs from one intervention to the next. It ends in a failure when the closing order is corrective; a preventive order closes it as censored (the unit was serviced before failing).
+2. **Weibull per family, with censoring.** The age policy is proposed only when wear is demonstrated (the whole 95 % interval of β above 1). With β ≈ 1 failures are random and the app recommends condition inspection instead of calendar preventive maintenance.
+3. **Your costs → optimal interval** (age replacement) and annual saving against the current preventive interval, plus the weekly workload that interval requires.
+4. **This week's list:** probability of failure in the next 7 days for each unit, capped by workshop capacity.
+5. **Retrospective check:** the model is refitted on the history before the last quarter and, week by week, its list is compared with the failures that happened.
+
+On the bundled example (40 simulated forklifts that wear out, 25 compressors with random failures) it recovers both regimes: forklifts β = 2.48 (95 % CI 2.26–2.70, true 2.5) with an optimal interval of 666 h against the current 2,000 h (−39 % cost); compressors β = 1.11 (0.94–1.28), so no age policy. The retrospective list anticipates 23 % of failures against 8 % by chance. Files are processed in the visitor's browser on the live demo. Pilot protocol: [`docs/MVP_PILOTO.md`](docs/MVP_PILOTO.md) (Spanish).
+
 ## How to run it
 
 ```bash
@@ -75,7 +87,8 @@ python -m pm_survival extract --archive path/to/CMAPSSData.zip --out data/raw/cm
 python -m pm_survival run   --raw-dir data/raw/cmapss   # SPEC-001 baseline
 python -m pm_survival study --raw-dir data/raw/cmapss   # SPEC-003, ~2 min
 python tools/make_figures.py
-pytest test/product                                      # 71 tests, no NASA data needed
+python -m pm_survival.fleet_intake plantilla_ordenes.xlsx   # work-order template for a real fleet
+pytest test/product                                      # 81 tests, no NASA data needed
 ```
 
 **Docker:** `docker build -t pm-survival . && docker run -p 8501:8501 pm-survival`, then open `http://localhost:8501`.
@@ -91,6 +104,7 @@ pytest test/product                                      # 71 tests, no NASA dat
 | Model cards | [`models/MODEL_CARD_LANDMARK_FD001.md`](models/MODEL_CARD_LANDMARK_FD001.md), [`models/MODEL_CARD_FD001.md`](models/MODEL_CARD_FD001.md) |
 | Model and policy code | [`src/pm_survival/landmark.py`](src/pm_survival/landmark.py), [`policies.py`](src/pm_survival/policies.py), [`study.py`](src/pm_survival/study.py) |
 | App | [`app/streamlit_app.py`](app/streamlit_app.py) |
+| MVP: work orders → weekly list | [`fleet_intake.py`](src/pm_survival/fleet_intake.py), [`fleet.py`](src/pm_survival/fleet.py), [`fleet_report.py`](src/pm_survival/fleet_report.py), [`ui_flota.py`](src/pm_survival/ui_flota.py) |
 | Product tests | [`test/product/`](test/product) |
 | Specifications | [`SPEC-001`](docs/specs/SPEC-001-cmapss-survival-baseline.md), [`SPEC-002`](docs/specs/SPEC-002-dod-closure.md), [`SPEC-003`](docs/specs/SPEC-003-condition-based-impact.md) |
 | L2 taxonomy ↔ sensors | [`docs/taxonomy.md`](docs/taxonomy.md) |

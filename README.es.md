@@ -52,6 +52,18 @@ Las señales de los primeros 20 ciclos no aportan sobre la edad; la condición r
 4. **Mide la decisión, no solo el modelo.** Backtest *renewal-reward* de cuatro políticas, con el umbral de intervención ajustado por CV interna en motores de entrenamiento y un oráculo como techo.
 5. **Dice lo que no sale bien.** El modelo sobrestima el riesgo cuando predice entre ~5 % y ~20 % (conservador para la decisión). Con corrección de Holm, el supuesto de riesgos proporcionales de SPEC-001 sí se sostiene; se reportan ambas lecturas.
 
+## Úsalo con tus órdenes de trabajo (MVP)
+
+El modo **«Tu flota»** de la aplicación convierte una exportación de mantenimiento (SAP PM, Maximo o Excel) en una lista semanal de intervención. No necesita sensores: solo equipo, fecha y tipo de orden, más el horómetro y la familia del equipo si existen.
+
+1. **Órdenes → vidas.** Cada vida va de una intervención a la siguiente. Termina en falla si la orden que la cierra es correctiva; una preventiva la cierra como censurada (el equipo se intervino antes de fallar).
+2. **Weibull por familia, con censura.** La política por edad solo se propone si el desgaste está demostrado (todo el intervalo de 95 % de β por encima de 1). Con β ≈ 1 las fallas son aleatorias y se recomienda inspección por condición en lugar de preventivo por calendario.
+3. **Tus costos → intervalo óptimo** (reemplazo por edad) y ahorro anual contra el intervalo preventivo actual, más la carga semanal que ese intervalo exige al taller.
+4. **Lista de la semana:** probabilidad de falla de cada equipo en los próximos 7 días, limitada por la capacidad del taller.
+5. **Retrospectiva:** el modelo se reajusta con el histórico previo al último trimestre y, semana a semana, su lista se compara con las fallas que ocurrieron.
+
+En el ejemplo incluido (40 montacargas simulados que se desgastan y 25 compresores con fallas aleatorias) recupera ambos regímenes: montacargas β = 2.48 (IC 95 % 2.26–2.70; real 2.5) con intervalo óptimo de 666 h contra 2,000 h actuales (−39 % de costo); compresores β = 1.11 (0.94–1.28), sin política por edad. En la retrospectiva la lista anticipa 23 % de las fallas contra 8 % al azar. En la demo publicada los archivos se procesan en el navegador del visitante. Protocolo de piloto: [`docs/MVP_PILOTO.md`](docs/MVP_PILOTO.md).
+
 ## Cómo ejecutar
 
 ```bash
@@ -75,7 +87,8 @@ python -m pm_survival extract --archive ruta/a/CMAPSSData.zip --out data/raw/cma
 python -m pm_survival run   --raw-dir data/raw/cmapss   # baseline SPEC-001
 python -m pm_survival study --raw-dir data/raw/cmapss   # SPEC-003, ~2 min
 python tools/make_figures.py
-pytest test/product                                      # 71 pruebas, sin datos NASA
+python -m pm_survival.fleet_intake plantilla_ordenes.xlsx   # plantilla de órdenes para una flota real
+pytest test/product                                      # 81 pruebas, sin datos NASA
 ```
 
 **Docker:** `docker build -t pm-survival . && docker run -p 8501:8501 pm-survival` y abre `http://localhost:8501`.
@@ -91,6 +104,7 @@ pytest test/product                                      # 71 pruebas, sin datos
 | Model cards | [`models/MODEL_CARD_LANDMARK_FD001.md`](models/MODEL_CARD_LANDMARK_FD001.md), [`models/MODEL_CARD_FD001.md`](models/MODEL_CARD_FD001.md) |
 | Código del modelo y las políticas | [`src/pm_survival/landmark.py`](src/pm_survival/landmark.py), [`policies.py`](src/pm_survival/policies.py), [`study.py`](src/pm_survival/study.py) |
 | App | [`app/streamlit_app.py`](app/streamlit_app.py) |
+| MVP: órdenes → lista semanal | [`fleet_intake.py`](src/pm_survival/fleet_intake.py), [`fleet.py`](src/pm_survival/fleet.py), [`fleet_report.py`](src/pm_survival/fleet_report.py), [`ui_flota.py`](src/pm_survival/ui_flota.py) |
 | Pruebas de producto | [`test/product/`](test/product) |
 | Especificaciones | [`SPEC-001`](docs/specs/SPEC-001-cmapss-survival-baseline.md), [`SPEC-002`](docs/specs/SPEC-002-dod-closure.md), [`SPEC-003`](docs/specs/SPEC-003-condition-based-impact.md) |
 | Taxonomía L2 ↔ sensores | [`docs/taxonomy.md`](docs/taxonomy.md) |
