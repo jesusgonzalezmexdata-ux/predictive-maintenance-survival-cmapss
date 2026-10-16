@@ -42,3 +42,12 @@ def test_changing_cost_ratio_rerenders(tmp_path, monkeypatch):
     at = _run(monkeypatch, tmp_path / "missing")
     at.sidebar.select_slider[0].set_value(50.0).run()
     assert not at.exception
+
+
+def test_fleet_mode_runs_the_error_example(tmp_path, monkeypatch):
+    at = _run(monkeypatch, tmp_path / "missing")
+    at.segmented_control[0].set_value("Tu flota").run()
+    at.button[0].click().run()
+    assert not at.exception, at.exception
+    assert any("órdenes válidas" in m.value for m in at.markdown)
+    assert at.success and "Montacargas" in at.success[0].value
