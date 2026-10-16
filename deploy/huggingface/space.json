@@ -1,0 +1,20 @@
+{
+  "title": "Condition-based maintenance",
+  "emoji": "⚙️",
+  "colorFrom": "gray",
+  "colorTo": "blue",
+  "entrypoint": "app/streamlit_app.py",
+  "requirements": [
+    "plotly",
+    "lifelines"
+  ],
+  "include": [
+    "app/streamlit_app.py",
+    "src/pm_survival",
+    "reports/demo"
+  ],
+  "short_description": "Which engines to service now (NASA C-MAPSS)",
+  "summary": "Choose the failure/preventive cost ratio and see which engines to service this week; condition-based maintenance is 40 % cheaper than age replacement.",
+  "repo": "predictive-maintenance-survival-cmapss",
+  "license": "mit"
+}
