@@ -40,6 +40,9 @@ POLICY_NAMES = {
 }
 
 st.set_page_config(page_title="Mantenimiento por condición — C-MAPSS", layout="wide")
+from pm_survival.estilo import aplicar as aplicar_estilo  # noqa: E402
+
+aplicar_estilo()
 
 mode = st.segmented_control("Modo", ["Flota de ejemplo (NASA)", "Tu flota"], default="Flota de ejemplo (NASA)",
                             required=True, label_visibility="collapsed")
@@ -154,8 +157,8 @@ with tab_policy:
     wide = pol[pol["policy"].isin(["age", "condition", "oracle"])].pivot(
         index="ratio", columns="policy", values="cost_per_1000_cycles"
     )[["age", "condition", "oracle"]].rename(columns=POLICY_NAMES)
-    # same colours as the README figures: age = orange, condition = blue, oracle = aqua
-    st.line_chart(wide, color=["#eb6834", "#2a78d6", "#1baf7a"], x_label="C_f / C_p", y_label="costo / 1 000 ciclos")
+    # Paleta «Señal de campo»: edad = gris texto, condición = negro señal, oráculo = a favor
+    st.line_chart(wide, color=["#4A4E54", "#0E0F11", "#1F7A3D"], x_label="C_f / C_p", y_label="costo / 1 000 ciclos")
     st.caption(
         "Backtest fuera de pliegue (5 × 5 CV agrupada) sobre 100 motores run-to-failure. "
         "Detalle e intervalos de confianza: `reports/landmark_FD001.md`."

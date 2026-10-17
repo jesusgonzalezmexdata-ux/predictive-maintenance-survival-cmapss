@@ -11,6 +11,7 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY src ./src
 COPY app ./app
+COPY .streamlit ./.streamlit
 COPY docs ./docs
 COPY models ./models
 COPY reports ./reports
